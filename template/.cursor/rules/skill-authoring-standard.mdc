@@ -1,0 +1,7 @@
+---
+description: Skill authoring and catalog quality adapter
+alwaysApply: false
+---
+
+When creating, merging, splitting, or materially revising a skill, read
+`.agent-system/policies/skill-authoring-standard.md`.

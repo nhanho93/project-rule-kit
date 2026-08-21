@@ -1,0 +1,288 @@
+[
+  {
+    "id": "backend-engineer",
+    "scope": "shared",
+    "owner": "engineering",
+    "canonical": ".agents/agents/backend-engineer.md",
+    "adapters": {
+      "cursor": ".cursor/agents/backend-engineer.md",
+      "codex": ".agent-system/registry/agents.json",
+      "antigravity": ".agents/agents/backend-engineer.md"
+    }
+  },
+  {
+    "id": "backend-specialist",
+    "scope": "shared",
+    "owner": "extended-agent-catalog",
+    "canonical": ".agents/agents/backend-specialist.md",
+    "adapters": {
+      "cursor": ".cursor/agents/backend-specialist.md",
+      "codex": ".agent-system/registry/agents.json",
+      "antigravity": ".agents/agents/backend-specialist.md"
+    }
+  },
+  {
+    "id": "code-archaeologist",
+    "scope": "shared",
+    "owner": "extended-agent-catalog",
+    "canonical": ".agents/agents/code-archaeologist.md",
+    "adapters": {
+      "cursor": ".cursor/agents/code-archaeologist.md",
+      "codex": ".agent-system/registry/agents.json",
+      "antigravity": ".agents/agents/code-archaeologist.md"
+    }
+  },
+  {
+    "id": "code-reviewer",
+    "scope": "shared",
+    "owner": "quality",
+    "canonical": ".agents/agents/code-reviewer.md",
+    "adapters": {
+      "cursor": ".cursor/agents/code-reviewer.md",
+      "codex": ".agent-system/registry/agents.json",
+      "antigravity": ".agents/agents/code-reviewer.md"
+    }
+  },
+  {
+    "id": "database-architect",
+    "scope": "shared",
+    "owner": "extended-agent-catalog",
+    "canonical": ".agents/agents/database-architect.md",
+    "adapters": {
+      "cursor": ".cursor/agents/database-architect.md",
+      "codex": ".agent-system/registry/agents.json",
+      "antigravity": ".agents/agents/database-architect.md"
+    }
+  },
+  {
+    "id": "database-engineer",
+    "scope": "shared",
+    "owner": "data",
+    "canonical": ".agents/agents/database-engineer.md",
+    "adapters": {
+      "cursor": ".cursor/agents/database-engineer.md",
+      "codex": ".agent-system/registry/agents.json",
+      "antigravity": ".agents/agents/database-engineer.md"
+    }
+  },
+  {
+    "id": "debugger",
+    "scope": "shared",
+    "owner": "quality",
+    "canonical": ".agents/agents/debugger.md",
+    "adapters": {
+      "cursor": ".cursor/agents/debugger.md",
+      "codex": ".agent-system/registry/agents.json",
+      "antigravity": ".agents/agents/debugger.md"
+    }
+  },
+  {
+    "id": "devops-engineer",
+    "scope": "shared",
+    "owner": "delivery",
+    "canonical": ".agents/agents/devops-engineer.md",
+    "adapters": {
+      "cursor": ".cursor/agents/devops-engineer.md",
+      "codex": ".agent-system/registry/agents.json",
+      "antigravity": ".agents/agents/devops-engineer.md"
+    }
+  },
+  {
+    "id": "documentation-writer",
+    "scope": "shared",
+    "owner": "docs",
+    "canonical": ".agents/agents/documentation-writer.md",
+    "adapters": {
+      "cursor": ".cursor/agents/documentation-writer.md",
+      "codex": ".agent-system/registry/agents.json",
+      "antigravity": ".agents/agents/documentation-writer.md"
+    }
+  },
+  {
+    "id": "explorer-agent",
+    "scope": "shared",
+    "owner": "extended-agent-catalog",
+    "canonical": ".agents/agents/explorer-agent.md",
+    "adapters": {
+      "cursor": ".cursor/agents/explorer-agent.md",
+      "codex": ".agent-system/registry/agents.json",
+      "antigravity": ".agents/agents/explorer-agent.md"
+    }
+  },
+  {
+    "id": "frontend-engineer",
+    "scope": "shared",
+    "owner": "engineering",
+    "canonical": ".agents/agents/frontend-engineer.md",
+    "adapters": {
+      "cursor": ".cursor/agents/frontend-engineer.md",
+      "codex": ".agent-system/registry/agents.json",
+      "antigravity": ".agents/agents/frontend-engineer.md"
+    }
+  },
+  {
+    "id": "frontend-specialist",
+    "scope": "shared",
+    "owner": "extended-agent-catalog",
+    "canonical": ".agents/agents/frontend-specialist.md",
+    "adapters": {
+      "cursor": ".cursor/agents/frontend-specialist.md",
+      "codex": ".agent-system/registry/agents.json",
+      "antigravity": ".agents/agents/frontend-specialist.md"
+    }
+  },
+  {
+    "id": "game-developer",
+    "scope": "shared",
+    "owner": "extended-agent-catalog",
+    "canonical": ".agents/agents/game-developer.md",
+    "adapters": {
+      "cursor": ".cursor/agents/game-developer.md",
+      "codex": ".agent-system/registry/agents.json",
+      "antigravity": ".agents/agents/game-developer.md"
+    }
+  },
+  {
+    "id": "mobile-developer",
+    "scope": "shared",
+    "owner": "extended-agent-catalog",
+    "canonical": ".agents/agents/mobile-developer.md",
+    "adapters": {
+      "cursor": ".cursor/agents/mobile-developer.md",
+      "codex": ".agent-system/registry/agents.json",
+      "antigravity": ".agents/agents/mobile-developer.md"
+    }
+  },
+  {
+    "id": "orchestrator",
+    "scope": "shared",
+    "owner": "workflow",
+    "canonical": ".agents/agents/orchestrator.md",
+    "adapters": {
+      "cursor": ".cursor/agents/orchestrator.md",
+      "codex": ".agent-system/registry/agents.json",
+      "antigravity": ".agents/agents/orchestrator.md"
+    }
+  },
+  {
+    "id": "penetration-tester",
+    "scope": "shared",
+    "owner": "extended-agent-catalog",
+    "canonical": ".agents/agents/penetration-tester.md",
+    "adapters": {
+      "cursor": ".cursor/agents/penetration-tester.md",
+      "codex": ".agent-system/registry/agents.json",
+      "antigravity": ".agents/agents/penetration-tester.md"
+    }
+  },
+  {
+    "id": "performance-optimizer",
+    "scope": "shared",
+    "owner": "extended-agent-catalog",
+    "canonical": ".agents/agents/performance-optimizer.md",
+    "adapters": {
+      "cursor": ".cursor/agents/performance-optimizer.md",
+      "codex": ".agent-system/registry/agents.json",
+      "antigravity": ".agents/agents/performance-optimizer.md"
+    }
+  },
+  {
+    "id": "product-manager",
+    "scope": "shared",
+    "owner": "extended-agent-catalog",
+    "canonical": ".agents/agents/product-manager.md",
+    "adapters": {
+      "cursor": ".cursor/agents/product-manager.md",
+      "codex": ".agent-system/registry/agents.json",
+      "antigravity": ".agents/agents/product-manager.md"
+    }
+  },
+  {
+    "id": "product-owner",
+    "scope": "shared",
+    "owner": "extended-agent-catalog",
+    "canonical": ".agents/agents/product-owner.md",
+    "adapters": {
+      "cursor": ".cursor/agents/product-owner.md",
+      "codex": ".agent-system/registry/agents.json",
+      "antigravity": ".agents/agents/product-owner.md"
+    }
+  },
+  {
+    "id": "project-planner",
+    "scope": "shared",
+    "owner": "workflow",
+    "canonical": ".agents/agents/project-planner.md",
+    "adapters": {
+      "cursor": ".cursor/agents/project-planner.md",
+      "codex": ".agent-system/registry/agents.json",
+      "antigravity": ".agents/agents/project-planner.md"
+    }
+  },
+  {
+    "id": "qa-automation-engineer",
+    "scope": "shared",
+    "owner": "extended-agent-catalog",
+    "canonical": ".agents/agents/qa-automation-engineer.md",
+    "adapters": {
+      "cursor": ".cursor/agents/qa-automation-engineer.md",
+      "codex": ".agent-system/registry/agents.json",
+      "antigravity": ".agents/agents/qa-automation-engineer.md"
+    }
+  },
+  {
+    "id": "qc-engineer",
+    "scope": "shared",
+    "owner": "extended-agent-catalog",
+    "canonical": ".agents/agents/qc-engineer.md",
+    "adapters": {
+      "cursor": ".cursor/agents/qc-engineer.md",
+      "codex": ".agent-system/registry/agents.json",
+      "antigravity": ".agents/agents/qc-engineer.md"
+    }
+  },
+  {
+    "id": "researcher",
+    "scope": "shared",
+    "owner": "research",
+    "canonical": ".agents/agents/researcher.md",
+    "adapters": {
+      "cursor": ".cursor/agents/researcher.md",
+      "codex": ".agent-system/registry/agents.json",
+      "antigravity": ".agents/agents/researcher.md"
+    }
+  },
+  {
+    "id": "security-auditor",
+    "scope": "shared",
+    "owner": "safety",
+    "canonical": ".agents/agents/security-auditor.md",
+    "adapters": {
+      "cursor": ".cursor/agents/security-auditor.md",
+      "codex": ".agent-system/registry/agents.json",
+      "antigravity": ".agents/agents/security-auditor.md"
+    }
+  },
+  {
+    "id": "seo-specialist",
+    "scope": "shared",
+    "owner": "extended-agent-catalog",
+    "canonical": ".agents/agents/seo-specialist.md",
+    "adapters": {
+      "cursor": ".cursor/agents/seo-specialist.md",
+      "codex": ".agent-system/registry/agents.json",
+      "antigravity": ".agents/agents/seo-specialist.md"
+    }
+  },
+  {
+    "id": "test-engineer",
+    "scope": "shared",
+    "owner": "quality",
+    "canonical": ".agents/agents/test-engineer.md",
+    "adapters": {
+      "cursor": ".cursor/agents/test-engineer.md",
+      "codex": ".agent-system/registry/agents.json",
+      "antigravity": ".agents/agents/test-engineer.md"
+    }
+  }
+]

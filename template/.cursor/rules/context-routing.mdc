@@ -1,0 +1,6 @@
+---
+description: Shared context routing adapter
+alwaysApply: true
+---
+
+Read `.agent-system/policies/context-routing.md`.

@@ -1,0 +1,26 @@
+# Local dependencies and build output
+node_modules/
+dist/
+build/
+coverage/
+.next/
+
+# Local environment and credentials
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.pfx
+
+# Editor, OS, and temporary state
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.tmp
+*.log
+
+# Agent runtime state must stay local
+template/.agent-system/state/*
+!template/.agent-system/state/.gitignore

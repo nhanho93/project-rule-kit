@@ -1,0 +1,6 @@
+---
+description: Shared session and phase close adapter
+alwaysApply: true
+---
+
+Read `.agent-system/policies/session-and-phase-close.md`.

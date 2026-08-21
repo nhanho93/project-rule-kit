@@ -1,0 +1,6 @@
+---
+description: Shared verification policy adapter
+alwaysApply: true
+---
+
+Read `.agent-system/policies/verification.md`.

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Antigravity Orchestrator"
+  short_description: "Route models and provision browser QC fallback"
+  default_prompt: "Use $antigravity-orchestrator to route models by phase, prefer the native browser for QC, install the bundled Browser MCP X fallback when needed, and verify trajectory evidence."

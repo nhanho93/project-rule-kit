@@ -1,0 +1,6 @@
+---
+description: Shared Git and runtime delivery safety adapter
+alwaysApply: true
+---
+
+Read `.agent-system/policies/delivery-safety.md`.

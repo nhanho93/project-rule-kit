@@ -1,0 +1,12 @@
+[
+  {"id":"safe-write","scope":"shared","owner":"safety","canonical":".agent-system/policies/safe-write.md","adapters":{"cursor":".cursor/rules/safe-write.mdc","codex":"AGENTS.md","antigravity":".agents/rules/safe-write.md"}},
+  {"id":"verification","scope":"shared","owner":"quality","canonical":".agent-system/policies/verification.md","adapters":{"cursor":".cursor/rules/verification.mdc","codex":"AGENTS.md","antigravity":".agents/rules/verification.md"}},
+  {"id":"session-and-phase-close","scope":"shared","owner":"workflow","canonical":".agent-system/policies/session-and-phase-close.md","adapters":{"cursor":".cursor/rules/session-and-phase-close.mdc","codex":"AGENTS.md","antigravity":".agents/rules/session-and-phase-close.md"}},
+  {"id":"multi-agent-safety","scope":"shared","owner":"delegation","canonical":".agent-system/policies/multi-agent-safety.md","adapters":{"cursor":".cursor/rules/multi-agent-safety.mdc","codex":"AGENTS.md","antigravity":".agents/rules/multi-agent-safety.md"}},
+  {"id":"security-baseline","scope":"shared","owner":"safety","canonical":".agent-system/policies/security-baseline.md","adapters":{"cursor":".cursor/rules/security-baseline.mdc","codex":"AGENTS.md","antigravity":".agents/rules/security-baseline.md"}},
+  {"id":"context-routing","scope":"shared","owner":"workflow","canonical":".agent-system/policies/context-routing.md","adapters":{"cursor":".cursor/rules/context-routing.mdc","codex":"AGENTS.md","antigravity":".agents/rules/context-routing.md"}},
+  {"id":"project-knowledge-loop","scope":"shared","owner":"workflow","canonical":".agent-system/policies/project-knowledge-loop.md","adapters":{"cursor":".cursor/rules/project-knowledge-loop.mdc","codex":"AGENTS.md","antigravity":".agents/rules/project-knowledge-loop.md"}},
+  {"id":"delivery-safety","scope":"shared","owner":"delivery","canonical":".agent-system/policies/delivery-safety.md","adapters":{"cursor":".cursor/rules/delivery-safety.mdc","codex":"AGENTS.md","antigravity":".agents/rules/delivery-safety.md"}},
+  {"id":"task-classification","scope":"shared","owner":"workflow","canonical":".agent-system/policies/task-classification.md","adapters":{"cursor":".cursor/rules/task-classification.mdc","codex":"AGENTS.md","antigravity":".agents/rules/task-classification.md"}},
+  {"id":"skill-authoring-standard","scope":"shared","owner":"workflow","canonical":".agent-system/policies/skill-authoring-standard.md","adapters":{"cursor":".cursor/rules/skill-authoring-standard.mdc","codex":"AGENTS.md","antigravity":".agents/rules/skill-authoring-standard.md"}}
+]

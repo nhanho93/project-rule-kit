@@ -1,0 +1,6 @@
+---
+description: Shared safe-write policy adapter
+alwaysApply: true
+---
+
+Read `.agent-system/policies/safe-write.md`.

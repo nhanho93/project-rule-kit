@@ -1,0 +1,6 @@
+---
+description: Deterministic task classification and plan-gate adapter
+alwaysApply: true
+---
+
+Read `.agent-system/policies/task-classification.md` before selecting a task workflow.

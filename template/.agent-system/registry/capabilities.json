@@ -1,0 +1,6 @@
+[
+  {"id":"progress-visible","scope":"shared","owner":"workflow","group":"workflow","outcome":"Expose concise progress for multi-step work.","adapters":{"cursor":".cursor/capability-maps/workflow.md","codex":".agent-system/registry/codex-capabilities/workflow.md","antigravity":".agents/capability-maps/workflow.md"}},
+  {"id":"verify-with-evidence","scope":"shared","owner":"quality","group":"quality","outcome":"Run relevant checks and report results before completion.","adapters":{"cursor":".cursor/capability-maps/quality.md","codex":".agent-system/registry/codex-capabilities/quality.md","antigravity":".agents/capability-maps/quality.md"}},
+  {"id":"delegate-code-isolated","scope":"shared","owner":"delegation","group":"delegation","outcome":"Keep concurrent writers isolated or non-overlapping.","adapters":{"cursor":".cursor/capability-maps/delegation.md","codex":".agent-system/registry/codex-capabilities/delegation.md","antigravity":".agents/capability-maps/delegation.md"}},
+  {"id":"recover-without-data-loss","scope":"shared","owner":"safety","group":"recovery","outcome":"Stop and recover without destructive git operations.","adapters":{"cursor":".cursor/capability-maps/recovery.md","codex":".agent-system/registry/codex-capabilities/recovery.md","antigravity":".agents/capability-maps/recovery.md"}}
+]

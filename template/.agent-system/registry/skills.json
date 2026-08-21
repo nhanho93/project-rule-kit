@@ -1,0 +1,820 @@
+[
+  {
+    "id": "anti-monolith-clean-code",
+    "scope": "shared",
+    "owner": "extended-skill-catalog",
+    "canonical": ".agents/skills/anti-monolith-clean-code/SKILL.md",
+    "adapters": {
+      "cursor": ".cursor/skills/anti-monolith-clean-code/SKILL.md",
+      "codex": ".agent-system/registry/codex-skill-map.md",
+      "antigravity": ".agents/skills/anti-monolith-clean-code/SKILL.md"
+    },
+    "invocationMode": "both",
+    "triggerBranches": [
+      "anti-monolith-clean-code"
+    ]
+  },
+  {
+    "id": "antigravity-orchestrator",
+    "scope": "shared",
+    "owner": "workflow",
+    "canonical": ".agents/skills/antigravity-orchestrator/SKILL.md",
+    "adapters": {
+      "cursor": ".cursor/skills/antigravity-orchestrator/SKILL.md",
+      "codex": ".agent-system/registry/codex-skill-map.md",
+      "antigravity": ".agents/skills/antigravity-orchestrator/SKILL.md"
+    },
+    "invocationMode": "both",
+    "triggerBranches": [
+      "antigravity-orchestrator"
+    ]
+  },
+  {
+    "id": "api-patterns",
+    "scope": "shared",
+    "owner": "engineering",
+    "canonical": ".agents/skills/api-patterns/SKILL.md",
+    "adapters": {
+      "cursor": ".cursor/skills/api-patterns/SKILL.md",
+      "codex": ".agent-system/registry/codex-skill-map.md",
+      "antigravity": ".agents/skills/api-patterns/SKILL.md"
+    },
+    "invocationMode": "both",
+    "triggerBranches": [
+      "api-patterns"
+    ]
+  },
+  {
+    "id": "app-builder",
+    "scope": "shared",
+    "owner": "extended-skill-catalog",
+    "canonical": ".agents/skills/app-builder/SKILL.md",
+    "adapters": {
+      "cursor": ".cursor/skills/app-builder/SKILL.md",
+      "codex": ".agent-system/registry/codex-skill-map.md",
+      "antigravity": ".agents/skills/app-builder/SKILL.md"
+    },
+    "invocationMode": "both",
+    "triggerBranches": [
+      "app-builder"
+    ]
+  },
+  {
+    "id": "architecture",
+    "scope": "shared",
+    "owner": "extended-skill-catalog",
+    "canonical": ".agents/skills/architecture/SKILL.md",
+    "adapters": {
+      "cursor": ".cursor/skills/architecture/SKILL.md",
+      "codex": ".agent-system/registry/codex-skill-map.md",
+      "antigravity": ".agents/skills/architecture/SKILL.md"
+    },
+    "invocationMode": "both",
+    "triggerBranches": [
+      "module-boundary-design",
+      "architecture-tradeoff-review"
+    ]
+  },
+  {
+    "id": "project-context-router",
+    "scope": "shared",
+    "owner": "extended-skill-catalog",
+    "canonical": ".agents/skills/project-context-router/SKILL.md",
+    "adapters": {
+      "cursor": ".cursor/skills/project-context-router/SKILL.md",
+      "codex": ".agent-system/registry/codex-skill-map.md",
+      "antigravity": ".agents/skills/project-context-router/SKILL.md"
+    },
+    "invocationMode": "model",
+    "triggerBranches": [
+      "project-context-router"
+    ]
+  },
+  {
+    "id": "project-delivery-pipeline",
+    "scope": "shared",
+    "owner": "workflow",
+    "canonical": ".agents/skills/project-delivery-pipeline/SKILL.md",
+    "adapters": {
+      "cursor": ".cursor/skills/project-delivery-pipeline/SKILL.md",
+      "codex": ".agent-system/registry/codex-skill-map.md",
+      "antigravity": ".agents/skills/project-delivery-pipeline/SKILL.md"
+    },
+    "invocationMode": "both",
+    "triggerBranches": [
+      "project-delivery-pipeline"
+    ]
+  },
+  {
+    "id": "bash-linux",
+    "scope": "shared",
+    "owner": "extended-skill-catalog",
+    "canonical": ".agents/skills/bash-linux/SKILL.md",
+    "adapters": {
+      "cursor": ".cursor/skills/bash-linux/SKILL.md",
+      "codex": ".agent-system/registry/codex-skill-map.md",
+      "antigravity": ".agents/skills/bash-linux/SKILL.md"
+    },
+    "invocationMode": "both",
+    "triggerBranches": [
+      "bash-linux"
+    ]
+  },
+  {
+    "id": "behavioral-modes",
+    "scope": "shared",
+    "owner": "extended-skill-catalog",
+    "canonical": ".agents/skills/behavioral-modes/SKILL.md",
+    "adapters": {
+      "cursor": ".cursor/skills/behavioral-modes/SKILL.md",
+      "codex": ".agent-system/registry/codex-skill-map.md",
+      "antigravity": ".agents/skills/behavioral-modes/SKILL.md"
+    },
+    "invocationMode": "model",
+    "triggerBranches": [
+      "behavioral-modes"
+    ]
+  },
+  {
+    "id": "brainstorming",
+    "scope": "shared",
+    "owner": "extended-skill-catalog",
+    "canonical": ".agents/skills/brainstorming/SKILL.md",
+    "adapters": {
+      "cursor": ".cursor/skills/brainstorming/SKILL.md",
+      "codex": ".agent-system/registry/codex-skill-map.md",
+      "antigravity": ".agents/skills/brainstorming/SKILL.md"
+    },
+    "invocationMode": "both",
+    "triggerBranches": [
+      "brainstorming"
+    ]
+  },
+  {
+    "id": "clean-code",
+    "scope": "shared",
+    "owner": "quality",
+    "canonical": ".agents/skills/clean-code/SKILL.md",
+    "adapters": {
+      "cursor": ".cursor/skills/clean-code/SKILL.md",
+      "codex": ".agent-system/registry/codex-skill-map.md",
+      "antigravity": ".agents/skills/clean-code/SKILL.md"
+    },
+    "invocationMode": "both",
+    "triggerBranches": [
+      "clean-code"
+    ]
+  },
+  {
+    "id": "code-organization-audit",
+    "scope": "shared",
+    "owner": "extended-skill-catalog",
+    "canonical": ".agents/skills/code-organization-audit/SKILL.md",
+    "adapters": {
+      "cursor": ".cursor/skills/code-organization-audit/SKILL.md",
+      "codex": ".agent-system/registry/codex-skill-map.md",
+      "antigravity": ".agents/skills/code-organization-audit/SKILL.md"
+    },
+    "invocationMode": "both",
+    "triggerBranches": [
+      "code-organization-audit"
+    ]
+  },
+  {
+    "id": "code-review-checklist",
+    "scope": "shared",
+    "owner": "quality",
+    "canonical": ".agents/skills/code-review-checklist/SKILL.md",
+    "adapters": {
+      "cursor": ".cursor/skills/code-review-checklist/SKILL.md",
+      "codex": ".agent-system/registry/codex-skill-map.md",
+      "antigravity": ".agents/skills/code-review-checklist/SKILL.md"
+    },
+    "invocationMode": "both",
+    "triggerBranches": [
+      "change-standards-review",
+      "change-spec-review"
+    ]
+  },
+  {
+    "id": "database-design",
+    "scope": "shared",
+    "owner": "extended-skill-catalog",
+    "canonical": ".agents/skills/database-design/SKILL.md",
+    "adapters": {
+      "cursor": ".cursor/skills/database-design/SKILL.md",
+      "codex": ".agent-system/registry/codex-skill-map.md",
+      "antigravity": ".agents/skills/database-design/SKILL.md"
+    },
+    "invocationMode": "both",
+    "triggerBranches": [
+      "database-design"
+    ]
+  },
+  {
+    "id": "database-migration-safety",
+    "scope": "shared",
+    "owner": "data",
+    "canonical": ".agents/skills/database-migration-safety/SKILL.md",
+    "adapters": {
+      "cursor": ".cursor/skills/database-migration-safety/SKILL.md",
+      "codex": ".agent-system/registry/codex-skill-map.md",
+      "antigravity": ".agents/skills/database-migration-safety/SKILL.md"
+    },
+    "invocationMode": "both",
+    "triggerBranches": [
+      "database-migration-safety"
+    ]
+  },
+  {
+    "id": "deployment-runbook",
+    "scope": "shared",
+    "owner": "delivery",
+    "canonical": ".agents/skills/deployment-runbook/SKILL.md",
+    "adapters": {
+      "cursor": ".cursor/skills/deployment-runbook/SKILL.md",
+      "codex": ".agent-system/registry/codex-skill-map.md",
+      "antigravity": ".agents/skills/deployment-runbook/SKILL.md"
+    },
+    "invocationMode": "both",
+    "triggerBranches": [
+      "release-execution",
+      "deployment-recovery"
+    ]
+  },
+  {
+    "id": "documentation-templates",
+    "scope": "shared",
+    "owner": "extended-skill-catalog",
+    "canonical": ".agents/skills/documentation-templates/SKILL.md",
+    "adapters": {
+      "cursor": ".cursor/skills/documentation-templates/SKILL.md",
+      "codex": ".agent-system/registry/codex-skill-map.md",
+      "antigravity": ".agents/skills/documentation-templates/SKILL.md"
+    },
+    "invocationMode": "both",
+    "triggerBranches": [
+      "documentation-templates"
+    ]
+  },
+  {
+    "id": "documentation-update",
+    "scope": "shared",
+    "owner": "docs",
+    "canonical": ".agents/skills/documentation-update/SKILL.md",
+    "adapters": {
+      "cursor": ".cursor/skills/documentation-update/SKILL.md",
+      "codex": ".agent-system/registry/codex-skill-map.md",
+      "antigravity": ".agents/skills/documentation-update/SKILL.md"
+    },
+    "invocationMode": "both",
+    "triggerBranches": [
+      "documentation-update"
+    ]
+  },
+  {
+    "id": "e2e-qc",
+    "scope": "shared",
+    "owner": "extended-skill-catalog",
+    "canonical": ".agents/skills/e2e-qc/SKILL.md",
+    "adapters": {
+      "cursor": ".cursor/skills/e2e-qc/SKILL.md",
+      "codex": ".agent-system/registry/codex-skill-map.md",
+      "antigravity": ".agents/skills/e2e-qc/SKILL.md"
+    },
+    "invocationMode": "both",
+    "triggerBranches": [
+      "browser-workflow-validation",
+      "release-user-journey-validation"
+    ]
+  },
+  {
+    "id": "frontend-design",
+    "scope": "shared",
+    "owner": "extended-skill-catalog",
+    "canonical": ".agents/skills/frontend-design/SKILL.md",
+    "adapters": {
+      "cursor": ".cursor/skills/frontend-design/SKILL.md",
+      "codex": ".agent-system/registry/codex-skill-map.md",
+      "antigravity": ".agents/skills/frontend-design/SKILL.md"
+    },
+    "invocationMode": "both",
+    "triggerBranches": [
+      "frontend-design"
+    ]
+  },
+  {
+    "id": "project-ui-conventions",
+    "scope": "shared",
+    "owner": "extended-skill-catalog",
+    "canonical": ".agents/skills/project-ui-conventions/SKILL.md",
+    "adapters": {
+      "cursor": ".cursor/skills/project-ui-conventions/SKILL.md",
+      "codex": ".agent-system/registry/codex-skill-map.md",
+      "antigravity": ".agents/skills/project-ui-conventions/SKILL.md"
+    },
+    "invocationMode": "both",
+    "triggerBranches": [
+      "project-ui-conventions"
+    ]
+  },
+  {
+    "id": "frontend-ui-qc",
+    "scope": "shared",
+    "owner": "quality",
+    "canonical": ".agents/skills/frontend-ui-qc/SKILL.md",
+    "adapters": {
+      "cursor": ".cursor/skills/frontend-ui-qc/SKILL.md",
+      "codex": ".agent-system/registry/codex-skill-map.md",
+      "antigravity": ".agents/skills/frontend-ui-qc/SKILL.md"
+    },
+    "invocationMode": "both",
+    "triggerBranches": [
+      "rendered-ui-quality",
+      "visual-regression-review"
+    ]
+  },
+  {
+    "id": "game-development",
+    "scope": "shared",
+    "owner": "extended-skill-catalog",
+    "canonical": ".agents/skills/game-development/SKILL.md",
+    "adapters": {
+      "cursor": ".cursor/skills/game-development/SKILL.md",
+      "codex": ".agent-system/registry/codex-skill-map.md",
+      "antigravity": ".agents/skills/game-development/SKILL.md"
+    },
+    "invocationMode": "both",
+    "triggerBranches": [
+      "game-development"
+    ]
+  },
+  {
+    "id": "geo-fundamentals",
+    "scope": "shared",
+    "owner": "extended-skill-catalog",
+    "canonical": ".agents/skills/geo-fundamentals/SKILL.md",
+    "adapters": {
+      "cursor": ".cursor/skills/geo-fundamentals/SKILL.md",
+      "codex": ".agent-system/registry/codex-skill-map.md",
+      "antigravity": ".agents/skills/geo-fundamentals/SKILL.md"
+    },
+    "invocationMode": "both",
+    "triggerBranches": [
+      "geo-fundamentals"
+    ]
+  },
+  {
+    "id": "git-change-management",
+    "scope": "shared",
+    "owner": "delivery",
+    "canonical": ".agents/skills/git-change-management/SKILL.md",
+    "adapters": {
+      "cursor": ".cursor/skills/git-change-management/SKILL.md",
+      "codex": ".agent-system/registry/codex-skill-map.md",
+      "antigravity": ".agents/skills/git-change-management/SKILL.md"
+    },
+    "invocationMode": "both",
+    "triggerBranches": [
+      "git-change-management"
+    ]
+  },
+  {
+    "id": "i18n-localization",
+    "scope": "shared",
+    "owner": "extended-skill-catalog",
+    "canonical": ".agents/skills/i18n-localization/SKILL.md",
+    "adapters": {
+      "cursor": ".cursor/skills/i18n-localization/SKILL.md",
+      "codex": ".agent-system/registry/codex-skill-map.md",
+      "antigravity": ".agents/skills/i18n-localization/SKILL.md"
+    },
+    "invocationMode": "both",
+    "triggerBranches": [
+      "i18n-localization"
+    ]
+  },
+  {
+    "id": "intelligent-routing",
+    "scope": "shared",
+    "owner": "extended-skill-catalog",
+    "canonical": ".agents/skills/intelligent-routing/SKILL.md",
+    "adapters": {
+      "cursor": ".cursor/skills/intelligent-routing/SKILL.md",
+      "codex": ".agent-system/registry/codex-skill-map.md",
+      "antigravity": ".agents/skills/intelligent-routing/SKILL.md"
+    },
+    "invocationMode": "model",
+    "triggerBranches": [
+      "intelligent-routing"
+    ]
+  },
+  {
+    "id": "lint-and-validate",
+    "scope": "shared",
+    "owner": "extended-skill-catalog",
+    "canonical": ".agents/skills/lint-and-validate/SKILL.md",
+    "adapters": {
+      "cursor": ".cursor/skills/lint-and-validate/SKILL.md",
+      "codex": ".agent-system/registry/codex-skill-map.md",
+      "antigravity": ".agents/skills/lint-and-validate/SKILL.md"
+    },
+    "invocationMode": "both",
+    "triggerBranches": [
+      "lint-and-validate"
+    ]
+  },
+  {
+    "id": "mcp-builder",
+    "scope": "shared",
+    "owner": "extended-skill-catalog",
+    "canonical": ".agents/skills/mcp-builder/SKILL.md",
+    "adapters": {
+      "cursor": ".cursor/skills/mcp-builder/SKILL.md",
+      "codex": ".agent-system/registry/codex-skill-map.md",
+      "antigravity": ".agents/skills/mcp-builder/SKILL.md"
+    },
+    "invocationMode": "both",
+    "triggerBranches": [
+      "mcp-builder"
+    ]
+  },
+  {
+    "id": "mobile-design",
+    "scope": "shared",
+    "owner": "extended-skill-catalog",
+    "canonical": ".agents/skills/mobile-design/SKILL.md",
+    "adapters": {
+      "cursor": ".cursor/skills/mobile-design/SKILL.md",
+      "codex": ".agent-system/registry/codex-skill-map.md",
+      "antigravity": ".agents/skills/mobile-design/SKILL.md"
+    },
+    "invocationMode": "both",
+    "triggerBranches": [
+      "mobile-design"
+    ]
+  },
+  {
+    "id": "multi-agent-monitor",
+    "scope": "shared",
+    "owner": "extended-skill-catalog",
+    "canonical": ".agents/skills/multi-agent-monitor/SKILL.md",
+    "adapters": {
+      "cursor": ".cursor/skills/multi-agent-monitor/SKILL.md",
+      "codex": ".agent-system/registry/codex-skill-map.md",
+      "antigravity": ".agents/skills/multi-agent-monitor/SKILL.md"
+    },
+    "invocationMode": "both",
+    "triggerBranches": [
+      "multi-agent-monitor"
+    ]
+  },
+  {
+    "id": "nextjs-react-expert",
+    "scope": "shared",
+    "owner": "extended-skill-catalog",
+    "canonical": ".agents/skills/nextjs-react-expert/SKILL.md",
+    "adapters": {
+      "cursor": ".cursor/skills/nextjs-react-expert/SKILL.md",
+      "codex": ".agent-system/registry/codex-skill-map.md",
+      "antigravity": ".agents/skills/nextjs-react-expert/SKILL.md"
+    },
+    "invocationMode": "both",
+    "triggerBranches": [
+      "nextjs-react-expert"
+    ]
+  },
+  {
+    "id": "nodejs-best-practices",
+    "scope": "shared",
+    "owner": "extended-skill-catalog",
+    "canonical": ".agents/skills/nodejs-best-practices/SKILL.md",
+    "adapters": {
+      "cursor": ".cursor/skills/nodejs-best-practices/SKILL.md",
+      "codex": ".agent-system/registry/codex-skill-map.md",
+      "antigravity": ".agents/skills/nodejs-best-practices/SKILL.md"
+    },
+    "invocationMode": "both",
+    "triggerBranches": [
+      "nodejs-best-practices"
+    ]
+  },
+  {
+    "id": "parallel-agents",
+    "scope": "shared",
+    "owner": "extended-skill-catalog",
+    "canonical": ".agents/skills/parallel-agents/SKILL.md",
+    "adapters": {
+      "cursor": ".cursor/skills/parallel-agents/SKILL.md",
+      "codex": ".agent-system/registry/codex-skill-map.md",
+      "antigravity": ".agents/skills/parallel-agents/SKILL.md"
+    },
+    "invocationMode": "both",
+    "triggerBranches": [
+      "parallel-agents"
+    ]
+  },
+  {
+    "id": "performance-profiling",
+    "scope": "shared",
+    "owner": "extended-skill-catalog",
+    "canonical": ".agents/skills/performance-profiling/SKILL.md",
+    "adapters": {
+      "cursor": ".cursor/skills/performance-profiling/SKILL.md",
+      "codex": ".agent-system/registry/codex-skill-map.md",
+      "antigravity": ".agents/skills/performance-profiling/SKILL.md"
+    },
+    "invocationMode": "both",
+    "triggerBranches": [
+      "performance-profiling"
+    ]
+  },
+  {
+    "id": "plan-master",
+    "scope": "shared",
+    "owner": "extended-skill-catalog",
+    "canonical": ".agents/skills/plan-master/SKILL.md",
+    "adapters": {
+      "cursor": ".cursor/skills/plan-master/SKILL.md",
+      "codex": ".agent-system/registry/codex-skill-map.md",
+      "antigravity": ".agents/skills/plan-master/SKILL.md"
+    },
+    "invocationMode": "both",
+    "triggerBranches": [
+      "multi-wave-master-plan",
+      "go-no-go-roadmap"
+    ]
+  },
+  {
+    "id": "planning-workflow",
+    "scope": "shared",
+    "owner": "workflow",
+    "canonical": ".agents/skills/planning-workflow/SKILL.md",
+    "adapters": {
+      "cursor": ".cursor/skills/planning-workflow/SKILL.md",
+      "codex": ".agent-system/registry/codex-skill-map.md",
+      "antigravity": ".agents/skills/planning-workflow/SKILL.md"
+    },
+    "invocationMode": "both",
+    "triggerBranches": [
+      "complex-work-planning",
+      "phased-execution-design"
+    ]
+  },
+  {
+    "id": "powershell-windows",
+    "scope": "shared",
+    "owner": "extended-skill-catalog",
+    "canonical": ".agents/skills/powershell-windows/SKILL.md",
+    "adapters": {
+      "cursor": ".cursor/skills/powershell-windows/SKILL.md",
+      "codex": ".agent-system/registry/codex-skill-map.md",
+      "antigravity": ".agents/skills/powershell-windows/SKILL.md"
+    },
+    "invocationMode": "both",
+    "triggerBranches": [
+      "powershell-windows"
+    ]
+  },
+  {
+    "id": "project-knowledge-update",
+    "scope": "shared",
+    "owner": "workflow",
+    "canonical": ".agents/skills/project-knowledge-update/SKILL.md",
+    "adapters": {
+      "cursor": ".cursor/skills/project-knowledge-update/SKILL.md",
+      "codex": ".agent-system/registry/codex-skill-map.md",
+      "antigravity": ".agents/skills/project-knowledge-update/SKILL.md"
+    },
+    "invocationMode": "both",
+    "triggerBranches": [
+      "reusable-project-knowledge",
+      "knowledge-impact-close"
+    ]
+  },
+  {
+    "id": "python-patterns",
+    "scope": "shared",
+    "owner": "extended-skill-catalog",
+    "canonical": ".agents/skills/python-patterns/SKILL.md",
+    "adapters": {
+      "cursor": ".cursor/skills/python-patterns/SKILL.md",
+      "codex": ".agent-system/registry/codex-skill-map.md",
+      "antigravity": ".agents/skills/python-patterns/SKILL.md"
+    },
+    "invocationMode": "both",
+    "triggerBranches": [
+      "python-patterns"
+    ]
+  },
+  {
+    "id": "red-team-tactics",
+    "scope": "shared",
+    "owner": "extended-skill-catalog",
+    "canonical": ".agents/skills/red-team-tactics/SKILL.md",
+    "adapters": {
+      "cursor": ".cursor/skills/red-team-tactics/SKILL.md",
+      "codex": ".agent-system/registry/codex-skill-map.md",
+      "antigravity": ".agents/skills/red-team-tactics/SKILL.md"
+    },
+    "invocationMode": "both",
+    "triggerBranches": [
+      "red-team-tactics"
+    ]
+  },
+  {
+    "id": "rust-pro",
+    "scope": "shared",
+    "owner": "extended-skill-catalog",
+    "canonical": ".agents/skills/rust-pro/SKILL.md",
+    "adapters": {
+      "cursor": ".cursor/skills/rust-pro/SKILL.md",
+      "codex": ".agent-system/registry/codex-skill-map.md",
+      "antigravity": ".agents/skills/rust-pro/SKILL.md"
+    },
+    "invocationMode": "both",
+    "triggerBranches": [
+      "rust-pro"
+    ]
+  },
+  {
+    "id": "safe-refactoring",
+    "scope": "shared",
+    "owner": "quality",
+    "canonical": ".agents/skills/safe-refactoring/SKILL.md",
+    "adapters": {
+      "cursor": ".cursor/skills/safe-refactoring/SKILL.md",
+      "codex": ".agent-system/registry/codex-skill-map.md",
+      "antigravity": ".agents/skills/safe-refactoring/SKILL.md"
+    },
+    "invocationMode": "both",
+    "triggerBranches": [
+      "safe-refactoring"
+    ]
+  },
+  {
+    "id": "seo-fundamentals",
+    "scope": "shared",
+    "owner": "extended-skill-catalog",
+    "canonical": ".agents/skills/seo-fundamentals/SKILL.md",
+    "adapters": {
+      "cursor": ".cursor/skills/seo-fundamentals/SKILL.md",
+      "codex": ".agent-system/registry/codex-skill-map.md",
+      "antigravity": ".agents/skills/seo-fundamentals/SKILL.md"
+    },
+    "invocationMode": "both",
+    "triggerBranches": [
+      "seo-fundamentals"
+    ]
+  },
+  {
+    "id": "server-management",
+    "scope": "shared",
+    "owner": "extended-skill-catalog",
+    "canonical": ".agents/skills/server-management/SKILL.md",
+    "adapters": {
+      "cursor": ".cursor/skills/server-management/SKILL.md",
+      "codex": ".agent-system/registry/codex-skill-map.md",
+      "antigravity": ".agents/skills/server-management/SKILL.md"
+    },
+    "invocationMode": "both",
+    "triggerBranches": [
+      "server-management"
+    ]
+  },
+  {
+    "id": "systematic-debugging",
+    "scope": "shared",
+    "owner": "quality",
+    "canonical": ".agents/skills/systematic-debugging/SKILL.md",
+    "adapters": {
+      "cursor": ".cursor/skills/systematic-debugging/SKILL.md",
+      "codex": ".agent-system/registry/codex-skill-map.md",
+      "antigravity": ".agents/skills/systematic-debugging/SKILL.md"
+    },
+    "invocationMode": "both",
+    "triggerBranches": [
+      "systematic-debugging"
+    ]
+  },
+  {
+    "id": "tailwind-patterns",
+    "scope": "shared",
+    "owner": "extended-skill-catalog",
+    "canonical": ".agents/skills/tailwind-patterns/SKILL.md",
+    "adapters": {
+      "cursor": ".cursor/skills/tailwind-patterns/SKILL.md",
+      "codex": ".agent-system/registry/codex-skill-map.md",
+      "antigravity": ".agents/skills/tailwind-patterns/SKILL.md"
+    },
+    "invocationMode": "both",
+    "triggerBranches": [
+      "tailwind-patterns"
+    ]
+  },
+  {
+    "id": "tdd-workflow",
+    "scope": "shared",
+    "owner": "quality",
+    "canonical": ".agents/skills/tdd-workflow/SKILL.md",
+    "adapters": {
+      "cursor": ".cursor/skills/tdd-workflow/SKILL.md",
+      "codex": ".agent-system/registry/codex-skill-map.md",
+      "antigravity": ".agents/skills/tdd-workflow/SKILL.md"
+    },
+    "invocationMode": "both",
+    "triggerBranches": [
+      "tdd-workflow"
+    ]
+  },
+  {
+    "id": "testing-patterns",
+    "scope": "shared",
+    "owner": "extended-skill-catalog",
+    "canonical": ".agents/skills/testing-patterns/SKILL.md",
+    "adapters": {
+      "cursor": ".cursor/skills/testing-patterns/SKILL.md",
+      "codex": ".agent-system/registry/codex-skill-map.md",
+      "antigravity": ".agents/skills/testing-patterns/SKILL.md"
+    },
+    "invocationMode": "both",
+    "triggerBranches": [
+      "testing-patterns"
+    ]
+  },
+  {
+    "id": "ui-ux-pro-max",
+    "scope": "shared",
+    "owner": "extended-skill-catalog",
+    "canonical": ".agents/skills/ui-ux-pro-max/SKILL.md",
+    "adapters": {
+      "cursor": ".cursor/skills/ui-ux-pro-max/SKILL.md",
+      "codex": ".agent-system/registry/codex-skill-map.md",
+      "antigravity": ".agents/skills/ui-ux-pro-max/SKILL.md"
+    },
+    "invocationMode": "both",
+    "triggerBranches": [
+      "ui-ux-pro-max"
+    ]
+  },
+  {
+    "id": "vulnerability-scanner",
+    "scope": "shared",
+    "owner": "extended-skill-catalog",
+    "canonical": ".agents/skills/vulnerability-scanner/SKILL.md",
+    "adapters": {
+      "cursor": ".cursor/skills/vulnerability-scanner/SKILL.md",
+      "codex": ".agent-system/registry/codex-skill-map.md",
+      "antigravity": ".agents/skills/vulnerability-scanner/SKILL.md"
+    },
+    "invocationMode": "both",
+    "triggerBranches": [
+      "vulnerability-scanner"
+    ]
+  },
+  {
+    "id": "vm-operations-runbook",
+    "scope": "shared",
+    "owner": "delivery",
+    "canonical": ".agents/skills/vm-operations-runbook/SKILL.md",
+    "adapters": {
+      "cursor": ".cursor/skills/vm-operations-runbook/SKILL.md",
+      "codex": ".agent-system/registry/codex-skill-map.md",
+      "antigravity": ".agents/skills/vm-operations-runbook/SKILL.md"
+    },
+    "invocationMode": "both",
+    "triggerBranches": [
+      "vm-operations-runbook"
+    ]
+  },
+  {
+    "id": "web-design-guidelines",
+    "scope": "shared",
+    "owner": "extended-skill-catalog",
+    "canonical": ".agents/skills/web-design-guidelines/SKILL.md",
+    "adapters": {
+      "cursor": ".cursor/skills/web-design-guidelines/SKILL.md",
+      "codex": ".agent-system/registry/codex-skill-map.md",
+      "antigravity": ".agents/skills/web-design-guidelines/SKILL.md"
+    },
+    "invocationMode": "both",
+    "triggerBranches": [
+      "web-design-guidelines"
+    ]
+  },
+  {
+    "id": "webapp-testing",
+    "scope": "shared",
+    "owner": "extended-skill-catalog",
+    "canonical": ".agents/skills/webapp-testing/SKILL.md",
+    "adapters": {
+      "cursor": ".cursor/skills/webapp-testing/SKILL.md",
+      "codex": ".agent-system/registry/codex-skill-map.md",
+      "antigravity": ".agents/skills/webapp-testing/SKILL.md"
+    },
+    "invocationMode": "both",
+    "triggerBranches": [
+      "webapp-testing"
+    ]
+  }
+]

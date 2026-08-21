@@ -1,0 +1,6 @@
+---
+description: Shared security baseline adapter
+alwaysApply: true
+---
+
+Read `.agent-system/policies/security-baseline.md`.

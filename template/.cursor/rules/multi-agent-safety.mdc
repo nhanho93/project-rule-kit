@@ -1,0 +1,6 @@
+---
+description: Shared multi-agent safety adapter
+alwaysApply: false
+---
+
+Read `.agent-system/policies/multi-agent-safety.md`.

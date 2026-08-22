@@ -14,15 +14,6 @@
       "missing-limitations",
       "missing-when-to-use"
     ],
-    "bash-linux": [
-      "generic-scaffold",
-      "missing-example",
-      "missing-limitations"
-    ],
-    "behavioral-modes": [
-      "generic-scaffold",
-      "missing-limitations"
-    ],
     "clean-code": [
       "missing-example",
       "missing-limitations"
@@ -40,11 +31,6 @@
       "missing-example",
       "missing-limitations"
     ],
-    "documentation-templates": [
-      "generic-scaffold",
-      "missing-example",
-      "missing-limitations"
-    ],
     "documentation-update": [
       "missing-example",
       "missing-limitations"
@@ -53,25 +39,10 @@
       "missing-example",
       "missing-limitations"
     ],
-    "game-development": [
-      "generic-scaffold",
-      "missing-example",
-      "missing-limitations"
-    ],
-    "geo-fundamentals": [
-      "generic-scaffold",
-      "missing-example",
-      "missing-limitations"
-    ],
     "git-change-management": [
       "missing-example",
       "missing-limitations",
       "missing-when-to-use"
-    ],
-    "mobile-design": [
-      "generic-scaffold",
-      "missing-example",
-      "missing-limitations"
     ],
     "plan-master": [
       "missing-example",
@@ -97,22 +68,7 @@
       "missing-example",
       "missing-limitations"
     ],
-    "python-patterns": [
-      "generic-scaffold",
-      "missing-example",
-      "missing-limitations"
-    ],
-    "rust-pro": [
-      "generic-scaffold",
-      "missing-example",
-      "missing-limitations"
-    ],
     "safe-refactoring": [
-      "missing-example",
-      "missing-limitations"
-    ],
-    "seo-fundamentals": [
-      "generic-scaffold",
       "missing-example",
       "missing-limitations"
     ],
@@ -121,11 +77,6 @@
       "missing-limitations"
     ],
     "tdd-workflow": [
-      "missing-example",
-      "missing-limitations"
-    ],
-    "ui-ux-pro-max": [
-      "generic-scaffold",
       "missing-example",
       "missing-limitations"
     ],

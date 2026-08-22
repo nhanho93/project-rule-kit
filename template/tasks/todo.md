@@ -29,7 +29,7 @@
   continuity reconciliation.
 - [x] Wave 3: deepen eight safety/architecture skills; target warnings `96 -> 73`
   and generic scaffolds `18 -> 10`.
-- [ ] Wave 4: deepen ten specialist skills; target warnings `73 -> 44` and
+- [x] Wave 4: deepen ten specialist skills; target warnings `73 -> 44` and
   generic scaffolds `10 -> 0`.
 - [ ] Wave 5: resolve 44 remaining structural warnings and close at zero.
 - [x] Preserve the red-team authorization gate and vulnerability-scanner
@@ -39,5 +39,5 @@
 
 - Project Rule Kit maintainer: publish only after an explicit Git action request.
 - Installed project owner: customize canonical knowledge before first mutation.
-- Project Rule Kit maintainer: execute the current Wave 4 pointer, one local
+- Project Rule Kit maintainer: execute the current Wave 5 pointer, one local
   verified commit per wave; do not push without separate authorization.

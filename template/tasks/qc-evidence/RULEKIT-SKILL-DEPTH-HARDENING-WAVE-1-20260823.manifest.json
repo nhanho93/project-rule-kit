@@ -1,0 +1,38 @@
+{
+  "schema_version": 1,
+  "task_id": "RULEKIT-SKILL-DEPTH-HARDENING-20260823",
+  "classification": "complex",
+  "knowledge_impact": "NO_CHANGE",
+  "knowledge_files_impacted": [],
+  "reason": "Reusable skill and validator contracts changed, but no installed-project fact or canonical project knowledge overlay changed.",
+  "verification": [
+    {
+      "command": "node scripts/check-agent-control-skill-depth.mjs && node scripts/check-agent-control-skill-depth-fixtures.mjs",
+      "exit_code": 0,
+      "evidence_path": "tasks/qc-evidence/RULEKIT-SKILL-DEPTH-HARDENING-WAVE-1-20260823.md",
+      "sanitized_output_summary": "Eight agent-control contracts PASS; failure injection PASS 4/4."
+    },
+    {
+      "command": "node scripts/check-skill-catalog.mjs",
+      "exit_code": 0,
+      "evidence_path": "tasks/qc-evidence/RULEKIT-SKILL-DEPTH-HARDENING-WAVE-1-20260823.md",
+      "sanitized_output_summary": "Catalog PASS with 54 skills, 120 warnings, 26 generic scaffolds and zero errors."
+    },
+    {
+      "command": "node scripts/rulekit-doctor.mjs --template and failure-injection matrix",
+      "exit_code": 0,
+      "evidence_path": "tasks/qc-evidence/RULEKIT-SKILL-DEPTH-HARDENING-WAVE-1-20260823.md",
+      "sanitized_output_summary": "Final Rule Kit matrix and doctor are healthy."
+    },
+    {
+      "command": "git diff --check and source/credential trace scan",
+      "exit_code": 0,
+      "evidence_path": "tasks/qc-evidence/RULEKIT-SKILL-DEPTH-HARDENING-WAVE-1-20260823.md",
+      "sanitized_output_summary": "Scoped diff hygiene and sanitized trace scans PASS."
+    }
+  ],
+  "continuity": {
+    "pending_action": "UPDATED",
+    "reason": "Handover, todo and pending records now show Wave 1 completion, remaining debt and the uncommitted delivery decision."
+  }
+}

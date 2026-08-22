@@ -9,6 +9,7 @@ const checks = [
   ["customization", "check-project-customization.mjs", [template ? "--template" : "--installed"]],
   ["desired-state", "check-rulekit-stack.mjs", []],
   ["skill-catalog", "check-skill-catalog.mjs", []],
+  ["agent-control-depth", "check-agent-control-skill-depth.mjs", []],
   ["registry", "check-agent-config-registry.mjs", []],
   ["links", "check-agent-links.mjs", []],
   ["selection-evidence", "check-skill-selection-evidence.mjs", []],

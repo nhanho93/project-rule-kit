@@ -33,17 +33,7 @@
       "generic-scaffold",
       "missing-limitations"
     ],
-    "brainstorming": [
-      "generic-scaffold",
-      "missing-example",
-      "missing-limitations"
-    ],
     "clean-code": [
-      "missing-example",
-      "missing-limitations"
-    ],
-    "code-organization-audit": [
-      "generic-scaffold",
       "missing-example",
       "missing-limitations"
     ],
@@ -71,11 +61,6 @@
       "missing-limitations"
     ],
     "documentation-update": [
-      "missing-example",
-      "missing-limitations"
-    ],
-    "e2e-qc": [
-      "generic-scaffold",
       "missing-example",
       "missing-limitations"
     ],
@@ -108,15 +93,6 @@
       "missing-example",
       "missing-limitations"
     ],
-    "intelligent-routing": [
-      "generic-scaffold",
-      "missing-limitations"
-    ],
-    "lint-and-validate": [
-      "generic-scaffold",
-      "missing-example",
-      "missing-limitations"
-    ],
     "mcp-builder": [
       "generic-scaffold",
       "missing-example",
@@ -127,22 +103,12 @@
       "missing-example",
       "missing-limitations"
     ],
-    "multi-agent-monitor": [
-      "generic-scaffold",
-      "missing-example",
-      "missing-limitations"
-    ],
     "nextjs-react-expert": [
       "generic-scaffold",
       "missing-example",
       "missing-limitations"
     ],
     "nodejs-best-practices": [
-      "generic-scaffold",
-      "missing-example",
-      "missing-limitations"
-    ],
-    "parallel-agents": [
       "generic-scaffold",
       "missing-example",
       "missing-limitations"
@@ -219,11 +185,6 @@
       "missing-limitations"
     ],
     "tdd-workflow": [
-      "missing-example",
-      "missing-limitations"
-    ],
-    "testing-patterns": [
-      "generic-scaffold",
       "missing-example",
       "missing-limitations"
     ],

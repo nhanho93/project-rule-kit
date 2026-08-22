@@ -22,12 +22,20 @@
 - [x] Reduce reviewed warning debt from 143 to 120 and generic scaffolds from
   34 to 26; refresh only the expected semantic/desired-state artifacts.
 - [x] Reconcile Wave 1 evidence and continuity records.
+- [x] Deliver Wave 1 as local commit `f84fffa` without pushing.
+- [x] Wave 2: deepen eight core-engineering skills and remove exactly 24
+  warning codes (`120 -> 96`, generic `26 -> 18`).
+- [x] Run Wave 2 semantic preview, full doctor/failure-injection matrix and
+  continuity reconciliation.
+- [ ] Wave 3: deepen eight safety/architecture skills; target warnings `96 -> 73`
+  and generic scaffolds `18 -> 10`.
+- [ ] Wave 4: deepen ten specialist skills; target warnings `73 -> 44` and
+  generic scaffolds `10 -> 0`.
+- [ ] Wave 5: resolve 44 remaining structural warnings and close at zero.
 
 ## Owner And Next Action
 
 - Project Rule Kit maintainer: publish only after an explicit Git action request.
 - Installed project owner: customize canonical knowledge before first mutation.
-- Project Rule Kit maintainer: deepen the remaining 26 generic scaffolds in
-  prioritized, independently verified waves; the next recommended wave covers
-  database, Node/Next/frontend, PowerShell/server, performance and web testing.
-- Operator: decide whether to commit and push the verified Wave 1 changes.
+- Project Rule Kit maintainer: execute the current Wave 3 pointer, one local
+  verified commit per wave; do not push without separate authorization.

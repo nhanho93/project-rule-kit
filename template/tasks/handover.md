@@ -16,6 +16,10 @@
   limitations, stop conditions, worked examples and completion evidence. A new
   behavior validator plus 4/4 failure-injection fixtures prevents those contracts
   from silently returning to generic scaffolds.
+- Skill Depth Hardening Wave 2 completed on 2026-08-23: database, Node.js,
+  Next.js/React, frontend design, PowerShell, server management, performance and
+  webapp-testing skills now expose distinct ownership, deep discovery, failure
+  branches and completion proof.
 
 ## Verification Evidence
 
@@ -32,13 +36,17 @@
 - Agent-control depth validator PASS; failure injection 4/4; catalog warnings
   `143 -> 120`; generic scaffolds `34 -> 26`; no trigger collision or semantic
   drift remains after reviewed baseline refresh.
+- Wave 2 evidence:
+  [Core Engineering Skill Depth](./qc-evidence/RULEKIT-SKILL-DEPTH-HARDENING-WAVE-2-20260823.md).
+- Wave 2 exact delta PASS: warnings `120 -> 96`, generic scaffolds `26 -> 18`;
+  full doctor and failure-injection matrix healthy.
 
 ## Open Risks And Next Action
 
 - No blocking follow-up for installer or lifecycle integrity.
-- The 26 remaining generic scaffolds and 120 warning codes remain explicit
+- The 18 remaining generic scaffolds and 96 warning codes remain explicit
   quality debt. The catalog fails any new unreviewed warning or risk downgrade;
-  continue with a separately gated core-engineering wave.
-- Current lifecycle/validator state was committed locally as `2e3070c`. Wave 1
-  and this plan remain uncommitted; push, publication and another commit require
-  separate authorization.
+  continue with the gated safety/architecture wave.
+- Current lifecycle/validator state is commit `2e3070c`; Wave 1 is commit
+  `f84fffa`. Wave 2 is verified and awaiting its bounded local commit. No commit
+  has been pushed or published.

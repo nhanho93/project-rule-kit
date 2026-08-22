@@ -42,11 +42,6 @@
       "missing-limitations",
       "missing-when-to-use"
     ],
-    "database-design": [
-      "generic-scaffold",
-      "missing-example",
-      "missing-limitations"
-    ],
     "database-migration-safety": [
       "missing-example",
       "missing-limitations"
@@ -61,11 +56,6 @@
       "missing-limitations"
     ],
     "documentation-update": [
-      "missing-example",
-      "missing-limitations"
-    ],
-    "frontend-design": [
-      "generic-scaffold",
       "missing-example",
       "missing-limitations"
     ],
@@ -103,32 +93,12 @@
       "missing-example",
       "missing-limitations"
     ],
-    "nextjs-react-expert": [
-      "generic-scaffold",
-      "missing-example",
-      "missing-limitations"
-    ],
-    "nodejs-best-practices": [
-      "generic-scaffold",
-      "missing-example",
-      "missing-limitations"
-    ],
-    "performance-profiling": [
-      "generic-scaffold",
-      "missing-example",
-      "missing-limitations"
-    ],
     "plan-master": [
       "missing-example",
       "missing-limitations",
       "missing-when-to-use"
     ],
     "planning-workflow": [
-      "missing-example",
-      "missing-limitations"
-    ],
-    "powershell-windows": [
-      "generic-scaffold",
       "missing-example",
       "missing-limitations"
     ],
@@ -170,11 +140,6 @@
       "missing-example",
       "missing-limitations"
     ],
-    "server-management": [
-      "generic-scaffold",
-      "missing-example",
-      "missing-limitations"
-    ],
     "systematic-debugging": [
       "missing-example",
       "missing-limitations"
@@ -204,11 +169,6 @@
       "missing-limitations"
     ],
     "web-design-guidelines": [
-      "generic-scaffold",
-      "missing-example",
-      "missing-limitations"
-    ],
-    "webapp-testing": [
       "generic-scaffold",
       "missing-example",
       "missing-limitations"

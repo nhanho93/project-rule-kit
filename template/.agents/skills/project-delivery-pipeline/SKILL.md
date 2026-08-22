@@ -40,17 +40,6 @@ description: >-
 
 ---
 
-## ARCHITECTURE GUIDE
-
-| Section | Layer | Bo sung o day khi |
-|---|---|---|
-| 1-10 | SKILL ENGINE — "What to do & when" | Them gate moi, optional skill, checklist ky thuat |
-| P1-P4 | PERSONA LAYER — "How to behave" | Thay doi giao tiep, feedback loop, auto-update rule |
-
-> Reuse: copy SKILL ENGINE, thay PERSONA LAYER de tao agent moi.
-
----
-
 ## 1. TASK CLASSIFIER
 
 | Tin hieu tu request | Pipeline |
@@ -184,3 +173,19 @@ Completion: every activated branch is loaded, and phase close has updated requir
 | [AUDIT] | Challenge plan item |
 | [KI] | Knowledge impact |
 | [UPDATE] | Da cap nhat handover/todo/pending |
+
+## When to Use
+
+Use this pipeline for an end-to-end delivery that spans at least planning and
+implementation, or implementation plus browser QC/evidence. Route a single
+read-only review, one-file tweak, Git-only action, or VM-only action to its
+narrower skill instead of forcing every gate.
+
+## Limitations and Stop Conditions
+
+- A gate does not grant permission for a later Git, push, deployment, migration,
+  credential, or production action; authorize each mutation separately.
+- Do not close a complex task from summaries alone or continue to the next wave
+  while a blocking edge, verification, continuity update, or owner is unresolved.
+- If no healthy browser surface exists for REQUIRED E2E, mark the wave BLOCKED
+  rather than substituting terminal-only checks.

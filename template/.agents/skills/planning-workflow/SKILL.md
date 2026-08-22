@@ -28,3 +28,19 @@ How to apply:
 For a wide mechanical migration that cannot stay green as an ordinary tracer
 slice, use expand -> migrate batches -> contract. Keep the old and new forms
 compatible until all declared migration edges are complete.
+
+## Limitations and Stop Conditions
+
+- Planning is read-only and does not authorize implementation or external
+  mutations.
+- Do not assert file paths, commands, dependencies, or architecture from memory
+  when repository discovery can verify them.
+- Stop when a material requirement is a decision rather than a discoverable
+  fact; identify the owner and keep the affected edge blocked.
+
+## Example
+
+For a parser and template migration, map current producers/consumers and legacy
+aliases, then plan a tracer slice containing one canonical field end to end:
+generated template, validation, parser, persistence, error UX, fixtures, and E2E
+decision. Expand to other fields only after that slice's evidence gate passes.

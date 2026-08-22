@@ -31,7 +31,11 @@
   and generic scaffolds `18 -> 10`.
 - [x] Wave 4: deepen ten specialist skills; target warnings `73 -> 44` and
   generic scaffolds `10 -> 0`.
-- [ ] Wave 5: resolve 44 remaining structural warnings and close at zero.
+- [x] Wave 5: resolve 44 remaining structural warnings and close at zero.
+- [x] Add catalog-wide skill-contract validation and 4/4 failure-injection
+  fixtures; include the gate in doctor diagnostics.
+- [x] Close the final Standards x Spec review, full matrix, evidence and all
+  continuity records.
 - [x] Preserve the red-team authorization gate and vulnerability-scanner
   read-only boundary through Wave 3 validation.
 
@@ -39,5 +43,5 @@
 
 - Project Rule Kit maintainer: publish only after an explicit Git action request.
 - Installed project owner: customize canonical knowledge before first mutation.
-- Project Rule Kit maintainer: execute the current Wave 5 pointer, one local
-  verified commit per wave; do not push without separate authorization.
+- Project Rule Kit maintainer: create the verified Wave 5 local close commit;
+  do not push without separate authorization.

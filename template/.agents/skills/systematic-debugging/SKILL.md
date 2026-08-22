@@ -23,3 +23,22 @@ How to apply:
 7. After three failed attempts, stop and re-investigate from evidence.
 
 Do not change multiple unrelated causes in one patch.
+
+## Limitations and Stop Conditions
+
+- Do not implement a speculative fix before reproducing the symptom or collecting
+  equivalent production evidence.
+- Do not broaden scope after a failed hypothesis without returning to the
+  observation/unknown list.
+- Stop after three failed fix attempts, preserve evidence, and restart root-cause
+  analysis or escalate the missing observability/decision.
+
+## Example
+
+If a scheduled report intermittently duplicates rows, first correlate run IDs,
+locks, retries, query cardinality, and timestamps. Test separate hypotheses of
+duplicate scheduling, non-idempotent writes, and join multiplication. Fix only
+the confirmed cause and add a regression test that fails without the fix.
+
+Completion: evidence identifies one root cause, the smallest fix removes the
+reproduction, the regression test proves it, and residual unknowns are recorded.

@@ -23,3 +23,25 @@ business logic.
 Completion means callers learn less than the implementation hides, behavior is
 testable through the intended contract, and ownership/dependency effects are
 recorded with evidence.
+
+## When to Use
+
+Use for a new module boundary, cross-module dependency, shared abstraction,
+storage/service placement, or a structural proposal that changes ownership or
+dependency direction. Use a narrower implementation skill when the boundary is
+already established and the task only changes behavior inside it.
+
+## Limitations and Stop Conditions
+
+- Do not redesign a stable boundary merely to match a preferred pattern.
+- Do not hide unresolved domain semantics behind a generic repository, helper,
+  or service layer.
+- Stop when source evidence and ADRs conflict; record the conflict, owner, and
+  decision needed before implementation.
+
+## Example
+
+When HTTP routes and a scheduled job calculate the same entitlement, place the
+invariant in the owning domain service, keep transport/job adapters thin, and
+test the public service contract. Record why a UI helper or generic shared
+utility was rejected and verify dependency direction remains adapter -> domain.

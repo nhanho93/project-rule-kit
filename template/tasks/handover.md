@@ -28,6 +28,13 @@
   routing, documentation templates, game development, geospatial, mobile,
   Python, Rust, SEO and advanced UI/UX now have specialist workflows without
   project-specific or tutorial boilerplate.
+- Skill Depth Hardening Wave 5 completed on 2026-08-23: the final twenty mature
+  skills now expose explicit selection boundaries, limitations/stop conditions,
+  capability-specific examples and observable completion criteria. The catalog
+  closes at 54 skills, zero generic scaffolds, zero oversized entrypoints and
+  zero warnings.
+- A catalog-wide contract validator and 4/4 failure-injection fixtures now block
+  regressions that remove limitations, examples or completion criteria.
 
 ## Verification Evidence
 
@@ -56,13 +63,16 @@
   [Specialist Skill Depth](./qc-evidence/RULEKIT-SKILL-DEPTH-HARDENING-WAVE-4-20260823.md).
 - Wave 4 exact delta PASS: warnings `73 -> 44`, generic scaffolds `10 -> 0`;
   full doctor/failure-injection matrix healthy.
+- Wave 5 evidence:
+  [Zero-Warning Skill Depth Close](./qc-evidence/RULEKIT-SKILL-DEPTH-HARDENING-WAVE-5-20260823.md).
+- Wave 5 exact delta PASS: warnings `44 -> 0`, generic scaffolds remain `0`;
+  catalog-wide contract failure injection 4/4 and doctor healthy 11/11.
 
 ## Open Risks And Next Action
 
 - No blocking follow-up for installer or lifecycle integrity.
-- Generic scaffold debt is zero. The 44 remaining structural warning codes are
-  explicit quality debt on non-generic skills; finish the gated zero-warning
-  close without weakening their existing workflows.
-- Current lifecycle/validator state is commit `2e3070c`; Wave 1 is commit
-  `f84fffa`; Wave 2 is `c456b71`; Wave 3 is `7dde3f2`. Wave 4 is verified and
-  awaiting its bounded local commit. No commit has been pushed or published.
+- Skill depth debt is closed: zero generic scaffolds and zero quality warnings.
+- Current lifecycle/validator state is commit `2e3070c`; Wave 1 is `f84fffa`;
+  Wave 2 is `c456b71`; Wave 3 is `7dde3f2`; Wave 4 is `c1624f7`. Wave 5 is
+  ready for its bounded local close commit. No commit has been pushed or
+  published.

@@ -27,3 +27,19 @@ How to apply:
    stack another feature commit on an unresolved release.
 7. Monitor the release, verify the exact version, and smoke test affected paths.
 8. Record commit/version, checks, outcome, rollback readiness, owner, and next action.
+
+## Limitations and Stop Conditions
+
+- Permission to prepare or review a release does not authorize push, deploy,
+  migration apply, service restart, or rollback.
+- Do not start the next delivery wave until the pushed version completes its
+  pipeline and declared health/smoke checks pass.
+- Stop on version mismatch, failed build/health, unknown rollback, or an
+  unapproved production mutation; preserve evidence and assign next action.
+
+## Example
+
+For two independent UI fixes, verify and commit Wave 1, push it, poll the named
+pipeline, confirm the deployed SHA, and smoke the affected route. Only after PASS
+repeat the sequence for Wave 2. A failed Wave 1 build blocks Wave 2 instead of
+being hidden by a larger follow-up commit.

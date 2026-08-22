@@ -23,3 +23,19 @@ How to apply:
 
 If code was written first, pause and add a test that would have failed against
 the previous behavior. Record the reason for the deviation.
+
+## Limitations and Stop Conditions
+
+- Do not write a test that mirrors implementation details or already passes
+  before the intended behavior exists.
+- TDD does not replace integration, migration, security, or browser verification
+  required by the changed boundary.
+- Stop when expected behavior or its oracle is ambiguous; resolve the spec before
+  encoding a possibly wrong contract.
+
+## Example
+
+For a timezone boundary bug, write a focused test using the failing timestamp and
+expected business date, run it to confirm old code fails for that reason, then
+make the smallest normalization change. Run the focused test and adjacent
+date-range suite before refactoring duplicated helpers.

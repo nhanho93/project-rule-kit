@@ -91,3 +91,19 @@ Mode: <plan | accept-edits>; --effort omitted
 Approved workspace folders:
 Permission flag enabled:
 ```
+
+## When to Use
+
+Use this skill when work must be delegated to Antigravity CLI/IDE, model quota
+must be allocated deliberately, or Antigravity must produce implementation or
+browser-QC evidence for an independent orchestrator to accept. Do not load it
+for work executed entirely by the current agent.
+
+## Limitations and Stop Conditions
+
+- Antigravity cannot choose or change its own model; the operator selects the
+  model before execution, and the brief records that choice.
+- Do not treat an agent summary, claimed browser run, or `/mcp` LOADED status as
+  proof without the required trajectory and artifacts.
+- Stop for the user when quota/account action, credentials, expanded scope, or
+  a destructive/production mutation requires new authorization.

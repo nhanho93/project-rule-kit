@@ -41,3 +41,22 @@ How to apply:
    - Git, release, deployment, runtime, or VM conventions: `docs/agent-rules/delivery-profile.md`
 4. Update `docs/agent-rules/project-profile.md` only for broad project facts.
 5. Do not add one-off task notes or cause documentation churn. Target stable knowledge only.
+
+## Limitations and Stop Conditions
+
+- Do not promote a single incident, temporary workaround, or agent preference
+  into a project convention without repeated or authoritative evidence.
+- Do not overwrite an explicit operator decision when source and docs conflict;
+  mark `UNRESOLVED` with owner and next action.
+- A `NO_CHANGE` declaration still requires evidence that the task was reviewed
+  for reusable knowledge impact.
+
+## Example
+
+If repeated fixes reveal every export must apply the same soft-delete predicate,
+record the invariant in the owning convention/domain document with source and
+test evidence, impacted modules, owner, and `last_verified`. If only one temporary
+report was affected, keep it in handover rather than global knowledge.
+
+Completion: `KNOWLEDGE_IMPACT` matches the evidence, canonical knowledge and all
+continuity surfaces agree, and unresolved items have an owner and next action.

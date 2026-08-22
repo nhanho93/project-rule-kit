@@ -23,3 +23,19 @@ How to apply:
    matrix and capture interactive states such as open dropdowns, dialogs,
    validation, overflow, and focus rather than static page load alone.
 7. Record evidence and remaining risk.
+
+## Limitations and Stop Conditions
+
+- Source inspection, component tests, and a page-load screenshot do not replace
+  real interaction evidence for a user-facing workflow.
+- Do not claim full responsive/theme coverage from a subset of the project's
+  declared matrix.
+- Stop with BLOCKED when authentication, test data, or a healthy browser surface
+  is unavailable and the missing path is REQUIRED.
+
+## Example
+
+For a date picker inside a modal, open it at every required viewport and theme,
+exercise keyboard focus, range selection, validation, scrolling, and submit.
+Capture the picker open so z-index/overflow defects are visible, then verify the
+saved dates after reload and record screenshots plus browser trajectory.

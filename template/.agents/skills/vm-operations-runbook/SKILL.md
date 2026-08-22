@@ -25,3 +25,26 @@ all unresolved owners/next actions.
 If a phase-close manifest is used, include a sanitized `delivery` section with
 the relevant `vm`, `deployment`, or `migration` operations, an environment/host
 alias in `target`, explicit `authorized: true`, and action/result evidence.
+
+## When to Use
+
+Use for SSH discovery or mutation, process/service management, VM-hosted deploys,
+reverse proxies, logs, health checks, and rollback. Use the managed-platform or
+deployment skill without this runbook when no VM access is involved.
+
+## Limitations and Stop Conditions
+
+- SSH access or deploy authorization does not imply permission to restart a
+  service, apply a migration, change firewall/proxy config, or roll back.
+- Never infer process manager, paths, host identity, or production status from
+  another project; discover them from the delivery profile and read-only checks.
+- Stop on host/version mismatch, unknown blast radius or recovery, missing health
+  oracle, or an unapproved destructive/production action.
+
+## Example
+
+To diagnose a failing VM service, verify the sanitized host/environment and
+release, inspect project-defined process status and a bounded log window, then
+correlate the first error with health checks. If restart is separately authorized,
+capture pre/post state and rollback readiness; otherwise report diagnosis and
+the exact next action without mutating the service.

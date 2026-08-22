@@ -74,5 +74,5 @@
 - Skill depth debt is closed: zero generic scaffolds and zero quality warnings.
 - Current lifecycle/validator state is commit `2e3070c`; Wave 1 is `f84fffa`;
   Wave 2 is `c456b71`; Wave 3 is `7dde3f2`; Wave 4 is `c1624f7`. Wave 5 is
-  ready for its bounded local close commit. No commit has been pushed or
-  published.
+  `86bf22c`. All lifecycle and Wave 1–5 commits were pushed fast-forward to
+  `origin/main` on 2026-08-23 and the Wave 5 remote SHA was verified.

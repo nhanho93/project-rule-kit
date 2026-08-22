@@ -43,5 +43,5 @@
 
 - Project Rule Kit maintainer: publish only after an explicit Git action request.
 - Installed project owner: customize canonical knowledge before first mutation.
-- Project Rule Kit maintainer: create the verified Wave 5 local close commit;
-  do not push without separate authorization.
+- Project Rule Kit maintainer: no remaining Skill Depth Hardening action; remote
+  publication and SHA verification completed on 2026-08-23.

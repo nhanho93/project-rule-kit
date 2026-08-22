@@ -27,15 +27,17 @@
   warning codes (`120 -> 96`, generic `26 -> 18`).
 - [x] Run Wave 2 semantic preview, full doctor/failure-injection matrix and
   continuity reconciliation.
-- [ ] Wave 3: deepen eight safety/architecture skills; target warnings `96 -> 73`
+- [x] Wave 3: deepen eight safety/architecture skills; target warnings `96 -> 73`
   and generic scaffolds `18 -> 10`.
 - [ ] Wave 4: deepen ten specialist skills; target warnings `73 -> 44` and
   generic scaffolds `10 -> 0`.
 - [ ] Wave 5: resolve 44 remaining structural warnings and close at zero.
+- [x] Preserve the red-team authorization gate and vulnerability-scanner
+  read-only boundary through Wave 3 validation.
 
 ## Owner And Next Action
 
 - Project Rule Kit maintainer: publish only after an explicit Git action request.
 - Installed project owner: customize canonical knowledge before first mutation.
-- Project Rule Kit maintainer: execute the current Wave 3 pointer, one local
+- Project Rule Kit maintainer: execute the current Wave 4 pointer, one local
   verified commit per wave; do not push without separate authorization.

@@ -1,21 +1,11 @@
 {
   "schemaVersion": 1,
   "warnings": {
-    "anti-monolith-clean-code": [
-      "generic-scaffold",
-      "missing-example",
-      "missing-limitations"
-    ],
     "antigravity-orchestrator": [
       "missing-limitations",
       "missing-when-to-use"
     ],
     "api-patterns": [
-      "missing-example",
-      "missing-limitations"
-    ],
-    "app-builder": [
-      "generic-scaffold",
       "missing-example",
       "missing-limitations"
     ],
@@ -78,16 +68,6 @@
       "missing-limitations",
       "missing-when-to-use"
     ],
-    "i18n-localization": [
-      "generic-scaffold",
-      "missing-example",
-      "missing-limitations"
-    ],
-    "mcp-builder": [
-      "generic-scaffold",
-      "missing-example",
-      "missing-limitations"
-    ],
     "mobile-design": [
       "generic-scaffold",
       "missing-example",
@@ -122,10 +102,6 @@
       "missing-example",
       "missing-limitations"
     ],
-    "red-team-tactics": [
-      "generic-scaffold",
-      "missing-example"
-    ],
     "rust-pro": [
       "generic-scaffold",
       "missing-example",
@@ -144,11 +120,6 @@
       "missing-example",
       "missing-limitations"
     ],
-    "tailwind-patterns": [
-      "generic-scaffold",
-      "missing-example",
-      "missing-limitations"
-    ],
     "tdd-workflow": [
       "missing-example",
       "missing-limitations"
@@ -162,16 +133,6 @@
       "missing-example",
       "missing-limitations",
       "missing-when-to-use"
-    ],
-    "vulnerability-scanner": [
-      "generic-scaffold",
-      "missing-example",
-      "missing-limitations"
-    ],
-    "web-design-guidelines": [
-      "generic-scaffold",
-      "missing-example",
-      "missing-limitations"
     ]
   },
   "metadata": {

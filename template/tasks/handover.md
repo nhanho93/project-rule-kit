@@ -20,6 +20,10 @@
   Next.js/React, frontend design, PowerShell, server management, performance and
   webapp-testing skills now expose distinct ownership, deep discovery, failure
   branches and completion proof.
+- Skill Depth Hardening Wave 3 completed on 2026-08-23: anti-monolith, vertical
+  app building, MCP design, vulnerability scanning, authorized red-team,
+  localization, Tailwind and web-design review now have capability-specific
+  workflows, safety boundaries and evidence contracts.
 
 ## Verification Evidence
 
@@ -40,13 +44,17 @@
   [Core Engineering Skill Depth](./qc-evidence/RULEKIT-SKILL-DEPTH-HARDENING-WAVE-2-20260823.md).
 - Wave 2 exact delta PASS: warnings `120 -> 96`, generic scaffolds `26 -> 18`;
   full doctor and failure-injection matrix healthy.
+- Wave 3 evidence:
+  [Safety and Architecture Skill Depth](./qc-evidence/RULEKIT-SKILL-DEPTH-HARDENING-WAVE-3-20260823.md).
+- Wave 3 exact delta PASS: warnings `96 -> 73`, generic scaffolds `18 -> 10`;
+  security authorization/risk metadata and all validators remain intact.
 
 ## Open Risks And Next Action
 
 - No blocking follow-up for installer or lifecycle integrity.
-- The 18 remaining generic scaffolds and 96 warning codes remain explicit
+- The 10 remaining generic scaffolds and 73 warning codes remain explicit
   quality debt. The catalog fails any new unreviewed warning or risk downgrade;
-  continue with the gated safety/architecture wave.
+  continue with the gated specialist wave.
 - Current lifecycle/validator state is commit `2e3070c`; Wave 1 is commit
-  `f84fffa`. Wave 2 is verified and awaiting its bounded local commit. No commit
-  has been pushed or published.
+  `f84fffa`; Wave 2 is `c456b71`. Wave 3 is verified and awaiting its bounded
+  local commit. No commit has been pushed or published.

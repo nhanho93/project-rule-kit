@@ -27,7 +27,10 @@ Before the first mutation after installing or upgrading this kit:
    authorization boundaries, delivery approvals, and intended agent platforms.
 4. Customize every canonical file under `docs/agent-rules/`, set its status to
    `VERIFIED`, and record evidence source, decision owner, and verification date.
-5. Run `node scripts/check-project-customization.mjs --installed`. Until it
+5. Review all ten rows in `.agent-system/registry/capability-coverage.json`;
+   record each as `covered`, explicit `gap`, or `not-applicable`, then refresh
+   desired state and selection evidence.
+6. Run `node scripts/rulekit-doctor.mjs`. Until it
    passes, answer discovery questions only; do not implement, commit, push,
    deploy, migrate, or mutate runtime systems.
 

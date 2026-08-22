@@ -4,6 +4,7 @@ export function parsePreflightArgs(args) {
     isResume: args.includes("--resume"),
     isSafeReset: args.includes("--safe-reset"),
     isStrictFreshness: args.includes("--strict-freshness"),
+    isTemplateAuthoring: args.includes("--template-authoring"),
     taskId: null,
     maxAgeDays: 30,
     classification: null,

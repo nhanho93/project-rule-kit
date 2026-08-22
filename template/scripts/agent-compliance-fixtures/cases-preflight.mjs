@@ -6,6 +6,25 @@ export function runPreflightCases(h) {
   h.expect(h.run(root, "agent-preflight.mjs", ["--simple"]), 0, "Read-only question mode", "question bypass");
   h.assert(!fs.existsSync(path.join(root, ".agent-system", "state")), "simple mode wrote receipt state");
 
+  root = h.project("template-authoring");
+  h.expect(
+    h.run(root, "agent-preflight.mjs", ["--template-authoring", ...h.complexArgs("AUTHORING")]),
+    0,
+    "Mode: Template",
+    "template authoring preflight"
+  );
+  const authoringReceipt = JSON.parse(fs.readFileSync(h.receiptPath(root, "AUTHORING"), "utf8"));
+  h.assert(authoringReceipt.status === "planning", "template authoring did not establish planning state");
+
+  root = h.project("template-authoring-installed-reject");
+  h.customize(root);
+  h.expect(
+    h.run(root, "agent-preflight.mjs", ["--template-authoring", ...h.complexArgs("AUTHORING_REJECT")]),
+    1,
+    "status must be UNRESOLVED",
+    "installed project cannot use template authoring"
+  );
+
   root = h.project("default-workflow", true);
   h.customize(root);
   h.expect(h.run(root, "agent-preflight.mjs", h.basicArgs("DEFAULT")), 0, "tasks/pending_todo.md", "default workflow context");

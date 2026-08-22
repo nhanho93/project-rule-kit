@@ -1,0 +1,15 @@
+{
+  "schemaVersion": 1,
+  "dimensions": [
+    { "id": "architecture-runtime", "status": "gap", "skillIds": [], "evidencePaths": [], "reason": "Customize from the target architecture and runtime." },
+    { "id": "languages-frameworks", "status": "gap", "skillIds": [], "evidencePaths": [], "reason": "Customize from manifests, lockfiles and source." },
+    { "id": "domain-behavior", "status": "gap", "skillIds": [], "evidencePaths": [], "reason": "Customize from domain rules and glossary." },
+    { "id": "data-storage", "status": "gap", "skillIds": [], "evidencePaths": [], "reason": "Customize from schemas, migrations and storage policy." },
+    { "id": "external-integrations", "status": "gap", "skillIds": [], "evidencePaths": [], "reason": "Customize from integration contracts or mark not-applicable." },
+    { "id": "testing-quality", "status": "gap", "skillIds": [], "evidencePaths": [], "reason": "Customize from test and QC infrastructure." },
+    { "id": "security-privacy", "status": "gap", "skillIds": [], "evidencePaths": [], "reason": "Customize from authorization, privacy and security boundaries." },
+    { "id": "user-experience-accessibility", "status": "gap", "skillIds": [], "evidencePaths": [], "reason": "Customize from user-facing surfaces or mark not-applicable." },
+    { "id": "deployment-operations", "status": "gap", "skillIds": [], "evidencePaths": [], "reason": "Customize from CI, deployment and runtime operations." },
+    { "id": "maintenance-workflow", "status": "gap", "skillIds": [], "evidencePaths": [], "reason": "Customize from Git, knowledge and continuity workflow." }
+  ]
+}

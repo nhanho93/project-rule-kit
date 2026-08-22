@@ -15,6 +15,15 @@ Registry entries declare:
 - `invocationMode`: `user`, `model`, or `both`.
 - `triggerBranches`: stable lower-case branch IDs representing distinct user
   intents. A branch may belong to only one model-discoverable skill.
+- Optional `entrypointPolicy` only when a project overlay must temporarily
+  exceed 200 lines. It requires `allowOver200: true`, a concrete `reason`, a
+  `followupOwner`, and a bounded `nextAction`. The catalog reports a warning;
+  undeclared oversized entrypoints still fail.
+- `risk`: `safe`, `critical`, or `offensive`.
+- `maturity`: `core`, `stable`, or `experimental`.
+- `depth`: `router`, `workflow`, or `domain-reference`.
+- `verificationProfile`: `standard`, `browser`, `security`, or `deployment`.
+- `requires` and `conflictsWith`: exact registry IDs; empty arrays are explicit.
 
 Use `user` when a workflow must start only from an explicit user request. Use
 `model` when it is an internal discipline selected automatically. Use `both`
@@ -43,6 +52,9 @@ Before closing a skill change:
 - Move conditional detail out of an oversized entrypoint before adding more.
 - Verify every reference is reachable from the branch that needs it.
 - Run registry, catalog, link, customization, and relevant behavior fixtures.
+- Do not update the quality-warning or semantic-drift baseline until the diff is
+  reviewed. Baseline updates acknowledge current state; they do not prove skill
+  quality or permit new generic scaffolds.
 
 Completion means the skill has discriminating selection metadata, checkable
 completion criteria, no undeclared trigger collision, and no duplicated

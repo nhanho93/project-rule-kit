@@ -34,7 +34,15 @@ replacement.
 
 ```powershell
 $target = "D:\Path\To\Project"
-Copy-Item -Recurse -Force "D:\Project\Project-Rule-Kit\template\*" $target
+$kit = "D:\Project\Project-Rule-Kit"
+Set-Location $kit
+
+# Preview is zero-write and produces a state-bound approval digest.
+$plan = node .\scripts\rulekit-install.mjs --target $target | ConvertFrom-Json
+$plan.operations | Format-Table kind, path, reason
+if ($plan.hasCollisions) { throw "Resolve collisions manually, then preview again." }
+
+node .\scripts\rulekit-install.mjs --target $target --apply --approve $plan.approvalDigest
 Set-Location $target
 
 # 1. Inspect mode (safe, shows what will happen)
@@ -49,16 +57,26 @@ node scripts/bootstrap-project-context.mjs --apply
 
 # 4. Installed validation (verifies everything is resolved)
 node scripts/check-project-customization.mjs --installed
+node scripts/sync-rulekit-stack.mjs --write
+node scripts/check-rulekit-stack.mjs
+
+# Review every dimension; keep an explicit gap rather than inventing coverage.
+# Edit .agent-system/registry/capability-coverage.json, then:
+node scripts/build-skill-selection-evidence.mjs --write
+node scripts/check-skill-selection-evidence.mjs
 
 # 5. Registry/Link validation
 node scripts/check-agent-config-registry.mjs
 node scripts/check-skill-catalog.mjs
 node scripts/check-skill-registry-fixtures.mjs
 node scripts/check-agent-links.mjs
+node scripts/check-agent-links-fixtures.mjs
+node scripts/check-skill-drift.mjs
 
 # 6. Compliance Loop validation
 node scripts/check-project-knowledge-loop.mjs
 node scripts/check-agent-compliance.mjs
+node scripts/rulekit-doctor.mjs
 ```
 
 ## Agent Workflow Execution
@@ -152,11 +170,25 @@ Agents route Git mutations to `git-change-management`, general releases to
 
 ## Existing Project
 
-1. Copy into a temporary folder first.
-2. Merge `AGENTS.md` and `GEMINI.md` manually if they already exist.
-3. Keep existing project-specific rules as overlays in `docs/agent-rules`.
-4. Add platform-specific adapters only when the platform needs native discovery.
-5. Run validators before asking agents to use the kit.
+1. Run the installer preview against the real target; do not pre-copy files.
+2. Resolve every `unmanaged-existing` or `managed-local-drift` collision by
+   manual review. Existing content remains untouched.
+3. Preview again and apply only the new digest from the collision-free plan.
+4. Merge `AGENTS.md` and `GEMINI.md` manually if they already exist.
+5. Keep project-specific rules as overlays in `docs/agent-rules`.
+6. Refresh desired state and selection evidence after customization.
+7. Run `rulekit-doctor.mjs` before asking agents to use the kit.
+
+If the project already has another registry, preserve it and declare an
+optional composition entry in `.agent-system/registry/extensions.json` rather
+than replacing the portable JSON registry. Each entry must provide a contained
+`.mjs` validator, exact source paths, and an owner. The primary registry check
+runs every declared extension and fails when any extension fails.
+
+For a temporary project-overlay skill entrypoint over 200 lines, declare
+`entrypointPolicy` in `skills.json` with `allowOver200: true`, a concrete
+reason, follow-up owner, and next action. This produces a warning, not a silent
+bypass; undeclared oversized entrypoints remain errors.
 
 ## Optional Browser MCP X Provisioning
 

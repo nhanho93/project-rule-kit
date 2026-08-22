@@ -1,5 +1,19 @@
 # Validation Evidence
 
+## 2026-08-22 — Rule Kit Lifecycle Hardening
+
+- Safe installer fixtures: 8/8 PASS.
+- Desired-state fixtures: 4/4 PASS.
+- Capability selection fixtures: 5/5 PASS.
+- Semantic drift fixtures: 3/3 PASS.
+- Registry/catalog fixtures: 10 assertions PASS.
+- Link fixtures: 4 assertions PASS.
+- Doctor: `healthy`, 9/9 checks PASS.
+- Catalog: 54 skills, zero hard errors; 143 existing quality warning codes
+  explicitly frozen against regression.
+- External source/branding trace scan: zero matches.
+- No commit, push, publish or downstream project mutation performed.
+
 Date: 2026-08-04
 
 Scope: created reusable cross-platform project rule kit at
@@ -256,3 +270,38 @@ Checks:
   and cyclic dependency rejection.
 - Provenance scan for the evaluated external repository name, URL, branded
   commands, and unique skill names: no matches in the kit.
+
+## Installed Validator Portability Hardening
+
+Date: 2026-08-22
+
+Scope:
+
+- Added guarded `--template-authoring` preflight so the distributable template
+  can be maintained without weakening the installed-project customization gate.
+- Limited installed customization checks to the six canonical knowledge files;
+  application source, build output, task history, and template syntax no longer
+  create false positives. Canonical placeholders remain hard failures.
+- Scoped agent-link validation and added fenced-example, generated-path, and
+  real-broken-link fixtures.
+- Replaced full-repository registry/compliance fixture copies with bounded,
+  deterministic fixture surfaces.
+- Added optional registry extension composition with contained validators and
+  fail-closed execution.
+- Added metadata-governed oversized skill exceptions requiring a reason,
+  follow-up owner, and next action.
+
+Checks:
+
+- Template customization: PASS.
+- Registry: PASS, 94 items, 0 errors.
+- Skill catalog: PASS, 54 skills, 0 hard errors; 34 pre-existing generic
+  scaffold warnings remain visible.
+- Governed Markdown links: PASS, 224 files, 0 broken links.
+- Link negative fixtures: PASS, 4 assertions.
+- Registry/catalog negative fixtures: PASS, 10 assertions.
+- Knowledge-loop template and installed-mode fixtures: PASS, 16 assertions.
+- Agent compliance: PASS, 20 cases, 119 assertions, including guarded
+  template-authoring acceptance and installed-project rejection.
+- Node syntax and `git diff --check`: PASS.
+- Project-specific trace scan: PASS, zero matches.

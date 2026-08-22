@@ -1,0 +1,50 @@
+{
+  "schema_version": 1,
+  "task_id": "RULEKIT-VALIDATOR-BACKPORT-20260822",
+  "classification": "complex",
+  "knowledge_impact": "NO_CHANGE",
+  "knowledge_files_impacted": [],
+  "reason": "Portable validator and workflow contracts changed; the six installed-project knowledge templates retain their intentional unresolved state and no project-specific fact changed.",
+  "verification": [
+    {
+      "command": "node scripts/check-project-customization.mjs --template",
+      "exit_code": 0,
+      "evidence_path": "tasks/qc-evidence/RULEKIT-VALIDATOR-BACKPORT-20260822.md",
+      "sanitized_output_summary": "Template customization PASS."
+    },
+    {
+      "command": "node scripts/check-agent-config-registry.mjs && node scripts/check-skill-catalog.mjs",
+      "exit_code": 0,
+      "evidence_path": "tasks/qc-evidence/RULEKIT-VALIDATOR-BACKPORT-20260822.md",
+      "sanitized_output_summary": "Registry PASS with 94 items and zero errors; catalog PASS with 54 skills and zero hard errors."
+    },
+    {
+      "command": "node scripts/check-agent-links.mjs && node scripts/check-agent-links-fixtures.mjs",
+      "exit_code": 0,
+      "evidence_path": "tasks/qc-evidence/RULEKIT-VALIDATOR-BACKPORT-20260822.md",
+      "sanitized_output_summary": "Governed links PASS with 224 files and zero broken links; negative fixtures PASS 4 assertions."
+    },
+    {
+      "command": "node scripts/check-skill-registry-fixtures.mjs && node scripts/check-project-knowledge-loop.mjs",
+      "exit_code": 0,
+      "evidence_path": "tasks/qc-evidence/RULEKIT-VALIDATOR-BACKPORT-20260822.md",
+      "sanitized_output_summary": "Registry/catalog fixtures PASS 10 assertions; knowledge-loop fixtures PASS 16 assertions."
+    },
+    {
+      "command": "node scripts/check-agent-compliance.mjs",
+      "exit_code": 0,
+      "evidence_path": "tasks/qc-evidence/RULEKIT-VALIDATOR-BACKPORT-20260822.md",
+      "sanitized_output_summary": "Compliance PASS 20 cases and 119 assertions."
+    },
+    {
+      "command": "node --check changed scripts; git diff --check; project-specific trace scan",
+      "exit_code": 0,
+      "evidence_path": "tasks/qc-evidence/RULEKIT-VALIDATOR-BACKPORT-20260822.md",
+      "sanitized_output_summary": "Syntax, whitespace, and zero-trace gates PASS."
+    }
+  ],
+  "continuity": {
+    "pending_action": "UPDATED",
+    "reason": "Reconciled the reusable installed-project setup row without adding a task-specific deferred item."
+  }
+}

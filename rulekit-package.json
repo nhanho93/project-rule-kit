@@ -1,0 +1,34 @@
+{
+  "schemaVersion": 1,
+  "name": "project-rule-kit",
+  "version": "1.1.0",
+  "sourceRoot": "template",
+  "managedStatePath": ".agent-system/install-state.json",
+  "excludedPrefixes": [
+    ".agent-system/state/"
+  ],
+  "artifactDirectories": [
+    "tasks/plans/",
+    "tasks/qc-evidence/"
+  ],
+  "artifactKeepNames": [
+    "README.md"
+  ],
+  "projectOwnedPaths": [
+    ".agent-system/registry/capability-coverage.json",
+    ".agent-system/registry/extensions.json",
+    ".agent-system/rulekit-stack.json",
+    ".agent-system/selection-evidence.json",
+    "AGENTS.md",
+    "GEMINI.md"
+  ],
+  "projectOwnedPrefixes": [
+    "docs/agent-rules/",
+    "tasks/"
+  ],
+  "supportedPlatforms": [
+    "antigravity",
+    "codex",
+    "cursor"
+  ]
+}

@@ -11,6 +11,28 @@ const tempDir = fs.mkdtempSync(path.join(os.tmpdir(), "project-rule-kit-fixture-
 
 console.log(`[FIXTURE] Started in ${tempDir}`);
 
+const installedProfile = path.join(root, "docs", "agent-rules", "project-profile.md");
+const installedContent = fs.existsSync(installedProfile)
+  ? fs.readFileSync(installedProfile, "utf8")
+  : "";
+if (/^status:\s*['"]?VERIFIED['"]?\s*$/m.test(installedContent)) {
+  try {
+    execSync("node scripts/check-project-customization.mjs --installed", {
+      cwd: root,
+      encoding: "utf8",
+      stdio: "pipe"
+    });
+    console.log("[FIXTURE] Installed project detected; customization knowledge gate PASS.");
+    console.log("[FIXTURE] Template-authoring mutation fixtures are not run against application repositories.");
+    fs.rmSync(tempDir, { recursive: true, force: true });
+    process.exit(0);
+  } catch (error) {
+    console.error(`[FIXTURE] Installed project knowledge gate FAIL: ${error.stdout || ""}${error.stderr || ""}`);
+    fs.rmSync(tempDir, { recursive: true, force: true });
+    process.exit(1);
+  }
+}
+
 function run(cmd, cwd = root, expectFail = false) {
   try {
     const output = execSync(cmd, { cwd, encoding: "utf8", stdio: "pipe" });
@@ -123,7 +145,22 @@ try {
 
   // Then installed validation passes
   console.log("[FIXTURE] 6. Checking installed validation passes after human review...");
+  fs.mkdirSync(path.join(installDir, "src"), { recursive: true });
+  const runtimeToken = "{" + "{RUNTIME_VALUE}" + "}";
+  fs.writeFileSync(
+    path.join(installDir, "src", "runtime-template.js"),
+    `const runtimeValue = '${runtimeToken}'; // TODO normal application note\n`
+  );
   run(`node scripts/check-project-customization.mjs --installed`, installDir);
+  run(`node scripts/check-project-knowledge-loop.mjs`, installDir);
+
+  const leftoverDir = path.join(tempDir, "leftover-placeholder");
+  fs.cpSync(installDir, leftoverDir, { recursive: true });
+  const leftoverProfile = path.join(leftoverDir, "docs", "agent-rules", "project-profile.md");
+  const leftoverToken = "{" + "{LEFTOVER_PROJECT_FACT}" + "}";
+  fs.appendFileSync(leftoverProfile, `\nUnresolved installed value: ${leftoverToken}\n`);
+  const leftoverOutput = run(`node scripts/check-project-customization.mjs --installed`, leftoverDir, true);
+  assert(leftoverOutput.includes("contains unresolved placeholder"), "Installed validator allowed a canonical placeholder");
 
   // 6.5 Negative fixtures for frontmatter
   console.log("[FIXTURE] 6.5 Checking negative fixtures for frontmatter...");

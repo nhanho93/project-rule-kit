@@ -21,6 +21,10 @@ platform-specific rule in every context window.
 - Antigravity native rule and capability adapters under `.agents`.
 - Codex capability maps under `.agent-system/registry/codex-capabilities`.
 - Validation scripts for registry and link checks.
+- Preview-first installer with approval digest, managed ownership, collision
+  protection, bounded backup, failure rollback, and semantic drift checks.
+- Desired-state and selection-evidence artifacts that bind project knowledge,
+  supported platforms, exact skill IDs, and ten capability dimensions.
 - Portable Browser MCP X QC fallback packages in the Antigravity orchestrator
   and project delivery pipeline skills, including installer, checksum, and version data.
 - Portable Git and VM delivery runbooks. Project-specific branches, providers,
@@ -62,16 +66,22 @@ canonical project knowledge is verified.
 
 ## Install Into A Fresh Project
 
-From this folder:
+From this folder, preview first. The preview is read-only and its digest is
+bound to the exact package, target and filesystem state:
 
 ```powershell
-Copy-Item -Recurse -Force .\template\* D:\Path\To\YourProject\
+$target = "D:\Path\To\YourProject"
+$plan = node .\scripts\rulekit-install.mjs --target $target | ConvertFrom-Json
+$plan.operations | Format-Table kind, path, reason
+
+# Apply only after reviewing a collision-free plan.
+node .\scripts\rulekit-install.mjs --target $target --apply --approve $plan.approvalDigest
 Set-Location D:\Path\To\YourProject
 ```
 
-For an existing project, follow [install.md](install.md): copy the template to a
-temporary directory, then merge it. Do not use `-Force` directly over existing
-rules, delivery profiles, handovers, todos, or pending work.
+For an existing project, follow [install.md](install.md). A collision means
+manual merge is required; the installer never resolves it by overwriting the
+target.
 
 ```powershell
 # 1. Inspect mode (safe, shows what will happen)
@@ -86,16 +96,27 @@ node scripts/bootstrap-project-context.mjs --apply
 
 # 4. Installed validation (verifies everything is resolved)
 node scripts/check-project-customization.mjs --installed
+node scripts/sync-rulekit-stack.mjs --write
+node scripts/check-rulekit-stack.mjs
+
+# Customize all ten rows in capability-coverage.json, then bind evidence.
+node scripts/build-skill-selection-evidence.mjs --write
+node scripts/check-skill-selection-evidence.mjs
 
 # 5. Registry/Link validation
 node scripts/check-agent-config-registry.mjs
 node scripts/check-skill-catalog.mjs
 node scripts/check-skill-registry-fixtures.mjs
 node scripts/check-agent-links.mjs
+node scripts/check-agent-links-fixtures.mjs
+node scripts/check-skill-drift.mjs
 
 # 6. Compliance Loop validation
 node scripts/check-project-knowledge-loop.mjs
 node scripts/check-agent-compliance.mjs
+
+# Aggregated read-only health result
+node scripts/rulekit-doctor.mjs
 ```
 
 ## Agent Workflow Execution
@@ -126,6 +147,18 @@ node scripts/agent-plan-gate.mjs --task-id <id> --plan tasks/plans/<critical-pla
 
 # 3. Create manifest (e.g. evidence/manifest.json)
 ```
+
+When maintaining the reusable template itself, its canonical knowledge files
+must remain intentionally unresolved. Use the explicit authoring gate instead
+of weakening or bypassing installed-project validation:
+
+```text
+node scripts/agent-preflight.mjs --template-authoring --task-id <id> --classification complex --request-summary "<sanitized>" --signal multi_file
+node scripts/agent-plan-gate.mjs --task-id <id> --plan tasks/plans/<plan>.md
+```
+
+The authoring flag succeeds only when template validation passes. An installed
+project with verified knowledge continues to use the ordinary preflight.
 
 ```json
 {
@@ -176,6 +209,9 @@ Explanation:
 - `receipt state`: Managed locally in `.agent-system/state/<id>.json`.
 - `freshness`: Checks if canonical knowledge is stale (use `--strict-freshness` to fail on stale).
 - `simple mode`: Reserved for read-only questions; it does not create a receipt or authorize mutation.
+- `template authoring`: Reserved for maintaining this distributable template;
+  it validates `--template` state and skips installed-document freshness only
+  because template frontmatter is intentionally unresolved.
 - `continuity gate`: Enabled by default in `.agent-system/compliance.json`. Before close, update both chain heads (`handover*.md`, `todo*.md`) and reconcile the single live `pending_todo.md`; declare its action in `continuity`.
 - `delivery`: For Git/VM/deployment/migration operations, record only sanitized target aliases and bounded action/results. The runbooks still require action-specific operator authorization before mutation.
 

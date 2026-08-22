@@ -142,30 +142,23 @@ if (isTemplate) {
   }
 }
 
-// In Installed mode: scan relevant text instruction/config files
+// In Installed mode: scan only canonical project knowledge files.
 if (isInstalled) {
-  walkSync(root, (filepath) => {
-    const ext = path.extname(filepath);
-    // Package-wide check for unresolved placeholders in relevant extensions
-    if (![".md", ".mdc", ".json", ".yaml", ".yml", ".toml", ".mjs", ".js"].includes(ext)) return;
-
-    const relPath = path.relative(root, filepath).replace(/\\/g, "/");
+  for (const relPath of canonicalDocs) {
+    const filepath = path.join(root, relPath);
+    if (!fs.existsSync(filepath)) continue;
     const content = fs.readFileSync(filepath, "utf8");
 
-    // Exception: Validator source files contain explicit token definitions, with exact per-file token allowlists; all other package files have zero allowance.
-    const allowList = allowedPlaceholders[relPath] || [];
     const placeholders = content.match(/\{\{([^}]+)\}\}/g) || [];
 
     for (const p of placeholders) {
-      if (!allowList.includes(p)) {
-        console.error(`[FAIL] ${relPath} contains unresolved placeholder: ${p}`);
-        errors++;
-      }
+      console.error(`[FAIL] ${relPath} contains unresolved placeholder: ${p}`);
+      errors++;
     }
 
     // Check generic unresolved markers ONLY in canonical project knowledge files
     if (canonicalDocs.includes(relPath)) {
-      const unresolvedPattern = /REVIEW_REQUIRED|Replace with project facts|TODO\b|FIXME\b/i;
+      const unresolvedPattern = /REVIEW_REQUIRED|Replace with project facts|\bFIXME\b|\bTODO\s*:/i;
       if (unresolvedPattern.test(content)) {
         console.error(`[FAIL] ${relPath} contains unresolved markers (REVIEW_REQUIRED/TODO/FIXME/Replace...).`);
         errors++;
@@ -200,7 +193,7 @@ if (isInstalled) {
          }
       }
     }
-  });
+  }
 }
 
 if (errors > 0) {

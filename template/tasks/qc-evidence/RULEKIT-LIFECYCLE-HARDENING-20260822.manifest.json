@@ -1,0 +1,44 @@
+{
+  "schema_version": 1,
+  "task_id": "RULEKIT-LIFECYCLE-HARDENING-20260822",
+  "classification": "complex",
+  "knowledge_impact": "NO_CHANGE",
+  "knowledge_files_impacted": [],
+  "reason": "Reusable installer, registry and lifecycle contracts changed; project-specific canonical knowledge templates remain intentionally unresolved and no downstream project fact changed.",
+  "verification": [
+    {
+      "command": "node scripts/check-rulekit-installer.mjs",
+      "exit_code": 0,
+      "evidence_path": "tasks/qc-evidence/RULEKIT-LIFECYCLE-HARDENING-20260822.md",
+      "sanitized_output_summary": "Installer fixtures PASS 8/8 including failure injection and project-overlay preservation."
+    },
+    {
+      "command": "node scripts/check-rulekit-stack-fixtures.mjs && node scripts/check-skill-selection-fixtures.mjs && node scripts/check-skill-drift-fixtures.mjs",
+      "exit_code": 0,
+      "evidence_path": "tasks/qc-evidence/RULEKIT-LIFECYCLE-HARDENING-20260822.md",
+      "sanitized_output_summary": "Desired-state 4/4, selection 5/5 and semantic-drift 3/3 fixtures PASS."
+    },
+    {
+      "command": "node scripts/check-skill-registry-fixtures.mjs && node scripts/check-agent-links-fixtures.mjs",
+      "exit_code": 0,
+      "evidence_path": "tasks/qc-evidence/RULEKIT-LIFECYCLE-HARDENING-20260822.md",
+      "sanitized_output_summary": "Registry/catalog 10 assertions and link 4 assertions PASS."
+    },
+    {
+      "command": "node scripts/rulekit-doctor.mjs --template",
+      "exit_code": 0,
+      "evidence_path": "tasks/qc-evidence/RULEKIT-LIFECYCLE-HARDENING-20260822.md",
+      "sanitized_output_summary": "Doctor status healthy with 9/9 checks passing."
+    },
+    {
+      "command": "git diff --check and external trace scan",
+      "exit_code": 0,
+      "evidence_path": "tasks/qc-evidence/RULEKIT-LIFECYCLE-HARDENING-20260822.md",
+      "sanitized_output_summary": "Whitespace and zero-external-trace gates PASS."
+    }
+  ],
+  "continuity": {
+    "pending_action": "UPDATED",
+    "reason": "Handover, todo and pending SSOT now record lifecycle completion and the measured generic-skill debt."
+  }
+}

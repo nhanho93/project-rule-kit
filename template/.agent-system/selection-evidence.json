@@ -1,0 +1,105 @@
+{
+  "schemaVersion": 1,
+  "digest": "sha256-df5dec483619cfe8f82fa8f897db42afc6cc27e89df855e584929f96ef23923f",
+  "payload": {
+    "schemaVersion": 1,
+    "kind": "rulekit.selection-evidence",
+    "projectFingerprint": "sha256-53e4f392882e1d87c2670ab68f80c6193dbfa2b39bdb7b135aa3c62c8f566216",
+    "registryDigest": "sha256-1f0bb443877ec37dd8cc247a0350b5dcfee6bd8f88a89cf4f32be7c0eaa5e4f6",
+    "selectedSkillIds": [],
+    "dimensions": [
+      {
+        "id": "architecture-runtime",
+        "status": "gap",
+        "reason": "Customize from the target architecture and runtime.",
+        "skillIds": [],
+        "evidence": []
+      },
+      {
+        "id": "data-storage",
+        "status": "gap",
+        "reason": "Customize from schemas, migrations and storage policy.",
+        "skillIds": [],
+        "evidence": []
+      },
+      {
+        "id": "deployment-operations",
+        "status": "gap",
+        "reason": "Customize from CI, deployment and runtime operations.",
+        "skillIds": [],
+        "evidence": []
+      },
+      {
+        "id": "domain-behavior",
+        "status": "gap",
+        "reason": "Customize from domain rules and glossary.",
+        "skillIds": [],
+        "evidence": []
+      },
+      {
+        "id": "external-integrations",
+        "status": "gap",
+        "reason": "Customize from integration contracts or mark not-applicable.",
+        "skillIds": [],
+        "evidence": []
+      },
+      {
+        "id": "languages-frameworks",
+        "status": "gap",
+        "reason": "Customize from manifests, lockfiles and source.",
+        "skillIds": [],
+        "evidence": []
+      },
+      {
+        "id": "maintenance-workflow",
+        "status": "gap",
+        "reason": "Customize from Git, knowledge and continuity workflow.",
+        "skillIds": [],
+        "evidence": []
+      },
+      {
+        "id": "security-privacy",
+        "status": "gap",
+        "reason": "Customize from authorization, privacy and security boundaries.",
+        "skillIds": [],
+        "evidence": []
+      },
+      {
+        "id": "testing-quality",
+        "status": "gap",
+        "reason": "Customize from test and QC infrastructure.",
+        "skillIds": [],
+        "evidence": []
+      },
+      {
+        "id": "user-experience-accessibility",
+        "status": "gap",
+        "reason": "Customize from user-facing surfaces or mark not-applicable.",
+        "skillIds": [],
+        "evidence": []
+      }
+    ],
+    "fingerprintFiles": [
+      {
+        "path": "docs/agent-rules/project-profile.md",
+        "digest": "sha256-41302081c55816d50159270d56f0a3e0ad58df52015e704135b7f5d0ab9c67d0"
+      },
+      {
+        "path": "docs/agent-rules/project-structure.md",
+        "digest": "sha256-b545453d5a3178bfc4f369c9332d92d7c4b0ccf9470313fa99bfa9ce8717b8a8"
+      },
+      {
+        "path": "docs/agent-rules/code-conventions.md",
+        "digest": "sha256-53fe0694619e973905c50b0845285a5375cf9451ef27ada139638ad802bcf44e"
+      },
+      {
+        "path": "docs/agent-rules/domain-glossary.md",
+        "digest": "sha256-f71311e666e1ccb5a1d8ac9280ba297358bce367870cf14fdce4b2dce66aa01a"
+      },
+      {
+        "path": "docs/agent-rules/delivery-profile.md",
+        "digest": "sha256-c3271bc026a0059a7962b77ce86d36277fcbb2b0ff9cb499e2872a84244a7508"
+      }
+    ]
+  }
+}

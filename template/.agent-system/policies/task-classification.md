@@ -54,6 +54,16 @@ node scripts/agent-preflight.mjs --task-id <id> --classification <complex|critic
 node scripts/agent-plan-gate.mjs --task-id <id> --plan <path>
 ```
 
+Maintaining this reusable template before project customization:
+
+```text
+node scripts/agent-preflight.mjs --template-authoring --task-id <id> --classification complex --request-summary "<sanitized>" --signal multi_file
+node scripts/agent-plan-gate.mjs --task-id <id> --plan <path>
+```
+
+`--template-authoring` is valid only when the template customization validator
+passes. It cannot bypass the installed-project customization gate.
+
 For critical or unclear work, add:
 
 ```text

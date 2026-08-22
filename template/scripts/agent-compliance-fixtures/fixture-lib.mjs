@@ -26,7 +26,56 @@ function hashTree(root) {
 
 export function createHarness(templateRoot) {
   const tempRoot = fs.mkdtempSync(path.join(os.tmpdir(), "project-rule-kit-compliance-"));
-  const sourceHash = hashTree(templateRoot);
+  const fixtureTemplate = path.join(tempRoot, "source");
+  fs.mkdirSync(fixtureTemplate, { recursive: true });
+  for (const tree of [".agent-system", "docs/agent-rules"]) {
+    fs.cpSync(path.join(templateRoot, tree), path.join(fixtureTemplate, tree), { recursive: true });
+  }
+  for (const doc of DOCS) {
+    const file = path.join(fixtureTemplate, "docs", "agent-rules", `${doc}.md`);
+    fs.writeFileSync(file, `---
+last_verified: ''
+evidence_sources: ''
+impacted_modules: ''
+decision_owner: ''
+status: 'UNRESOLVED'
+---
+# ${doc}
+Template fixture awaiting project customization.
+`);
+  }
+  const projectNameToken = "{" + "{PROJECT_NAME}" + "}";
+  fs.appendFileSync(
+    path.join(fixtureTemplate, "docs", "agent-rules", "project-profile.md"),
+    `\nProject name: ${projectNameToken}\n`
+  );
+  for (const file of ["AGENTS.md", "GEMINI.md"]) {
+    fs.copyFileSync(path.join(templateRoot, file), path.join(fixtureTemplate, file));
+  }
+  fs.mkdirSync(path.join(fixtureTemplate, "scripts"), { recursive: true });
+  for (const file of [
+    "agent-compliance-continuity.mjs",
+    "agent-compliance-knowledge.mjs",
+    "agent-compliance-lib.mjs",
+    "agent-compliance-manifest.mjs",
+    "agent-compliance-receipt-v2.mjs",
+    "agent-compliance-state.mjs",
+    "agent-phase-close.mjs",
+    "agent-plan-gate.mjs",
+    "agent-preflight-input.mjs",
+    "agent-preflight-receipt.mjs",
+    "agent-preflight.mjs",
+    "agent-project-baseline.mjs",
+    "agent-task-classification.mjs",
+    "check-project-customization.mjs"
+  ]) {
+    fs.copyFileSync(path.join(templateRoot, "scripts", file), path.join(fixtureTemplate, "scripts", file));
+  }
+  fs.mkdirSync(path.join(fixtureTemplate, "tasks"), { recursive: true });
+  fs.writeFileSync(path.join(fixtureTemplate, "tasks", "handover.md"), "fixture handover baseline\n");
+  fs.writeFileSync(path.join(fixtureTemplate, "tasks", "todo.md"), "fixture todo baseline\n");
+  fs.writeFileSync(path.join(fixtureTemplate, "tasks", "pending_todo.md"), "fixture pending baseline\n");
+  const sourceHash = hashTree(fixtureTemplate);
   let cases = 0;
   let assertions = 0;
   const assert = (condition, message) => {
@@ -36,7 +85,7 @@ export function createHarness(templateRoot) {
   const project = (name, workflow = false) => {
     cases++;
     const root = path.join(tempRoot, `${String(cases).padStart(2, "0")}-${name}`);
-    fs.cpSync(templateRoot, root, { recursive: true });
+    fs.cpSync(fixtureTemplate, root, { recursive: true });
     fs.rmSync(path.join(root, ".agent-system", "state"), { recursive: true, force: true });
     if (!workflow) {
       for (const name of ["handover.md", "todo.md", "pending_todo.md"]) {
@@ -84,7 +133,7 @@ export function createHarness(templateRoot) {
   return {
     assert, project, customize, continuity, run, expect, receiptPath, manifest, writeManifest,
     basicArgs, complexArgs, criticalArgs, planContent,
-    assertSourceUnchanged: () => assert(hashTree(templateRoot) === sourceHash, "Production template mutated during fixture run"),
+    assertSourceUnchanged: () => assert(hashTree(fixtureTemplate) === sourceHash, "Compliance fixture template mutated during run"),
     cleanup: () => fs.rmSync(tempRoot, { recursive: true, force: true, maxRetries: 3, retryDelay: 100 }),
     caseCount: () => cases, assertCount: () => assertions
   };

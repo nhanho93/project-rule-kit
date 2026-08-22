@@ -16,7 +16,7 @@ try {
   process.exit(1);
 }
 let { taskId, maxAgeDays, classification, requestSummary, classificationSource, confirmationRef, classificationSignals } = input;
-const { isSimple, isResume, isSafeReset, isStrictFreshness } = input;
+const { isSimple, isResume, isSafeReset, isStrictFreshness, isTemplateAuthoring } = input;
 
 console.log("[START] agent-preflight");
 
@@ -35,7 +35,7 @@ if (taskId) {
 }
 
 if (isSimple) {
-  if (taskId || classification || classificationSignals.length) {
+  if (taskId || classification || classificationSignals.length || isTemplateAuthoring) {
     console.error("[ERROR] --simple is only for read-only questions and cannot be combined with task classification arguments.");
     process.exit(1);
   }
@@ -124,7 +124,8 @@ try {
 }
 
 const checkScript = path.join(root, "scripts", "check-project-customization.mjs");
-const checkRes = spawnSync("node", [checkScript, "--installed"], { stdio: "inherit" });
+const customizationMode = isTemplateAuthoring ? "--template" : "--installed";
+const checkRes = spawnSync("node", [checkScript, customizationMode], { stdio: "inherit" });
 if (checkRes.status !== 0) {
   console.error("[ERROR] Project customization check failed.");
   process.exit(1);
@@ -137,15 +138,17 @@ const requiredContextFiles = [];
 
 for (const doc of canonicalDocs) {
   const docPath = path.join(root, doc);
-  const freshness = checkFreshness(docPath, maxAgeDays, isStrictFreshness);
-  if (freshness.status === "fail") {
-    console.error(`[ERROR] ${freshness.message}`);
-    freshnessErrors++;
-  } else if (freshness.status === "invalid") {
-    console.error(`[ERROR] ${freshness.message}`);
-    freshnessErrors++;
-  } else if (freshness.status === "warn") {
-    console.warn(`[WARN] ${freshness.message}`);
+  if (!isTemplateAuthoring) {
+    const freshness = checkFreshness(docPath, maxAgeDays, isStrictFreshness);
+    if (freshness.status === "fail") {
+      console.error(`[ERROR] ${freshness.message}`);
+      freshnessErrors++;
+    } else if (freshness.status === "invalid") {
+      console.error(`[ERROR] ${freshness.message}`);
+      freshnessErrors++;
+    } else if (freshness.status === "warn") {
+      console.warn(`[WARN] ${freshness.message}`);
+    }
   }
   canonicalHashes[doc] = hashFile(docPath);
   requiredContextFiles.push(doc);

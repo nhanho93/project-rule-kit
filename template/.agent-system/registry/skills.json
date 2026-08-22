@@ -12,7 +12,13 @@
     "invocationMode": "both",
     "triggerBranches": [
       "anti-monolith-clean-code"
-    ]
+    ],
+    "risk": "safe",
+    "maturity": "experimental",
+    "depth": "workflow",
+    "verificationProfile": "standard",
+    "requires": [],
+    "conflictsWith": []
   },
   {
     "id": "antigravity-orchestrator",
@@ -27,7 +33,13 @@
     "invocationMode": "both",
     "triggerBranches": [
       "antigravity-orchestrator"
-    ]
+    ],
+    "risk": "critical",
+    "maturity": "stable",
+    "depth": "workflow",
+    "verificationProfile": "standard",
+    "requires": [],
+    "conflictsWith": []
   },
   {
     "id": "api-patterns",
@@ -42,7 +54,13 @@
     "invocationMode": "both",
     "triggerBranches": [
       "api-patterns"
-    ]
+    ],
+    "risk": "safe",
+    "maturity": "stable",
+    "depth": "domain-reference",
+    "verificationProfile": "standard",
+    "requires": [],
+    "conflictsWith": []
   },
   {
     "id": "app-builder",
@@ -57,7 +75,13 @@
     "invocationMode": "both",
     "triggerBranches": [
       "app-builder"
-    ]
+    ],
+    "risk": "safe",
+    "maturity": "experimental",
+    "depth": "workflow",
+    "verificationProfile": "standard",
+    "requires": [],
+    "conflictsWith": []
   },
   {
     "id": "architecture",
@@ -73,7 +97,13 @@
     "triggerBranches": [
       "module-boundary-design",
       "architecture-tradeoff-review"
-    ]
+    ],
+    "risk": "safe",
+    "maturity": "stable",
+    "depth": "workflow",
+    "verificationProfile": "standard",
+    "requires": [],
+    "conflictsWith": []
   },
   {
     "id": "project-context-router",
@@ -88,7 +118,13 @@
     "invocationMode": "model",
     "triggerBranches": [
       "project-context-router"
-    ]
+    ],
+    "risk": "safe",
+    "maturity": "experimental",
+    "depth": "router",
+    "verificationProfile": "standard",
+    "requires": [],
+    "conflictsWith": []
   },
   {
     "id": "project-delivery-pipeline",
@@ -103,7 +139,13 @@
     "invocationMode": "both",
     "triggerBranches": [
       "project-delivery-pipeline"
-    ]
+    ],
+    "risk": "safe",
+    "maturity": "stable",
+    "depth": "workflow",
+    "verificationProfile": "standard",
+    "requires": [],
+    "conflictsWith": []
   },
   {
     "id": "bash-linux",
@@ -118,7 +160,13 @@
     "invocationMode": "both",
     "triggerBranches": [
       "bash-linux"
-    ]
+    ],
+    "risk": "safe",
+    "maturity": "experimental",
+    "depth": "domain-reference",
+    "verificationProfile": "standard",
+    "requires": [],
+    "conflictsWith": []
   },
   {
     "id": "behavioral-modes",
@@ -133,7 +181,13 @@
     "invocationMode": "model",
     "triggerBranches": [
       "behavioral-modes"
-    ]
+    ],
+    "risk": "safe",
+    "maturity": "experimental",
+    "depth": "router",
+    "verificationProfile": "standard",
+    "requires": [],
+    "conflictsWith": []
   },
   {
     "id": "brainstorming",
@@ -148,7 +202,13 @@
     "invocationMode": "both",
     "triggerBranches": [
       "brainstorming"
-    ]
+    ],
+    "risk": "safe",
+    "maturity": "experimental",
+    "depth": "workflow",
+    "verificationProfile": "standard",
+    "requires": [],
+    "conflictsWith": []
   },
   {
     "id": "clean-code",
@@ -163,7 +223,13 @@
     "invocationMode": "both",
     "triggerBranches": [
       "clean-code"
-    ]
+    ],
+    "risk": "safe",
+    "maturity": "stable",
+    "depth": "workflow",
+    "verificationProfile": "standard",
+    "requires": [],
+    "conflictsWith": []
   },
   {
     "id": "code-organization-audit",
@@ -178,7 +244,13 @@
     "invocationMode": "both",
     "triggerBranches": [
       "code-organization-audit"
-    ]
+    ],
+    "risk": "safe",
+    "maturity": "experimental",
+    "depth": "workflow",
+    "verificationProfile": "standard",
+    "requires": [],
+    "conflictsWith": []
   },
   {
     "id": "code-review-checklist",
@@ -194,7 +266,13 @@
     "triggerBranches": [
       "change-standards-review",
       "change-spec-review"
-    ]
+    ],
+    "risk": "safe",
+    "maturity": "stable",
+    "depth": "workflow",
+    "verificationProfile": "standard",
+    "requires": [],
+    "conflictsWith": []
   },
   {
     "id": "database-design",
@@ -209,7 +287,13 @@
     "invocationMode": "both",
     "triggerBranches": [
       "database-design"
-    ]
+    ],
+    "risk": "safe",
+    "maturity": "experimental",
+    "depth": "domain-reference",
+    "verificationProfile": "standard",
+    "requires": [],
+    "conflictsWith": []
   },
   {
     "id": "database-migration-safety",
@@ -224,7 +308,13 @@
     "invocationMode": "both",
     "triggerBranches": [
       "database-migration-safety"
-    ]
+    ],
+    "risk": "critical",
+    "maturity": "stable",
+    "depth": "workflow",
+    "verificationProfile": "deployment",
+    "requires": [],
+    "conflictsWith": []
   },
   {
     "id": "deployment-runbook",
@@ -240,7 +330,13 @@
     "triggerBranches": [
       "release-execution",
       "deployment-recovery"
-    ]
+    ],
+    "risk": "critical",
+    "maturity": "stable",
+    "depth": "workflow",
+    "verificationProfile": "deployment",
+    "requires": [],
+    "conflictsWith": []
   },
   {
     "id": "documentation-templates",
@@ -255,7 +351,13 @@
     "invocationMode": "both",
     "triggerBranches": [
       "documentation-templates"
-    ]
+    ],
+    "risk": "safe",
+    "maturity": "experimental",
+    "depth": "workflow",
+    "verificationProfile": "standard",
+    "requires": [],
+    "conflictsWith": []
   },
   {
     "id": "documentation-update",
@@ -270,7 +372,13 @@
     "invocationMode": "both",
     "triggerBranches": [
       "documentation-update"
-    ]
+    ],
+    "risk": "safe",
+    "maturity": "stable",
+    "depth": "workflow",
+    "verificationProfile": "standard",
+    "requires": [],
+    "conflictsWith": []
   },
   {
     "id": "e2e-qc",
@@ -286,7 +394,13 @@
     "triggerBranches": [
       "browser-workflow-validation",
       "release-user-journey-validation"
-    ]
+    ],
+    "risk": "safe",
+    "maturity": "stable",
+    "depth": "workflow",
+    "verificationProfile": "browser",
+    "requires": [],
+    "conflictsWith": []
   },
   {
     "id": "frontend-design",
@@ -301,7 +415,13 @@
     "invocationMode": "both",
     "triggerBranches": [
       "frontend-design"
-    ]
+    ],
+    "risk": "safe",
+    "maturity": "experimental",
+    "depth": "domain-reference",
+    "verificationProfile": "browser",
+    "requires": [],
+    "conflictsWith": []
   },
   {
     "id": "project-ui-conventions",
@@ -316,7 +436,13 @@
     "invocationMode": "both",
     "triggerBranches": [
       "project-ui-conventions"
-    ]
+    ],
+    "risk": "safe",
+    "maturity": "experimental",
+    "depth": "workflow",
+    "verificationProfile": "browser",
+    "requires": [],
+    "conflictsWith": []
   },
   {
     "id": "frontend-ui-qc",
@@ -332,7 +458,13 @@
     "triggerBranches": [
       "rendered-ui-quality",
       "visual-regression-review"
-    ]
+    ],
+    "risk": "safe",
+    "maturity": "stable",
+    "depth": "workflow",
+    "verificationProfile": "browser",
+    "requires": [],
+    "conflictsWith": []
   },
   {
     "id": "game-development",
@@ -347,7 +479,13 @@
     "invocationMode": "both",
     "triggerBranches": [
       "game-development"
-    ]
+    ],
+    "risk": "safe",
+    "maturity": "experimental",
+    "depth": "domain-reference",
+    "verificationProfile": "standard",
+    "requires": [],
+    "conflictsWith": []
   },
   {
     "id": "geo-fundamentals",
@@ -362,7 +500,13 @@
     "invocationMode": "both",
     "triggerBranches": [
       "geo-fundamentals"
-    ]
+    ],
+    "risk": "safe",
+    "maturity": "experimental",
+    "depth": "domain-reference",
+    "verificationProfile": "standard",
+    "requires": [],
+    "conflictsWith": []
   },
   {
     "id": "git-change-management",
@@ -377,7 +521,13 @@
     "invocationMode": "both",
     "triggerBranches": [
       "git-change-management"
-    ]
+    ],
+    "risk": "critical",
+    "maturity": "stable",
+    "depth": "workflow",
+    "verificationProfile": "deployment",
+    "requires": [],
+    "conflictsWith": []
   },
   {
     "id": "i18n-localization",
@@ -392,7 +542,13 @@
     "invocationMode": "both",
     "triggerBranches": [
       "i18n-localization"
-    ]
+    ],
+    "risk": "safe",
+    "maturity": "experimental",
+    "depth": "domain-reference",
+    "verificationProfile": "standard",
+    "requires": [],
+    "conflictsWith": []
   },
   {
     "id": "intelligent-routing",
@@ -407,7 +563,13 @@
     "invocationMode": "model",
     "triggerBranches": [
       "intelligent-routing"
-    ]
+    ],
+    "risk": "safe",
+    "maturity": "experimental",
+    "depth": "router",
+    "verificationProfile": "standard",
+    "requires": [],
+    "conflictsWith": []
   },
   {
     "id": "lint-and-validate",
@@ -422,7 +584,13 @@
     "invocationMode": "both",
     "triggerBranches": [
       "lint-and-validate"
-    ]
+    ],
+    "risk": "safe",
+    "maturity": "experimental",
+    "depth": "workflow",
+    "verificationProfile": "standard",
+    "requires": [],
+    "conflictsWith": []
   },
   {
     "id": "mcp-builder",
@@ -437,7 +605,13 @@
     "invocationMode": "both",
     "triggerBranches": [
       "mcp-builder"
-    ]
+    ],
+    "risk": "safe",
+    "maturity": "experimental",
+    "depth": "domain-reference",
+    "verificationProfile": "standard",
+    "requires": [],
+    "conflictsWith": []
   },
   {
     "id": "mobile-design",
@@ -452,7 +626,13 @@
     "invocationMode": "both",
     "triggerBranches": [
       "mobile-design"
-    ]
+    ],
+    "risk": "safe",
+    "maturity": "experimental",
+    "depth": "domain-reference",
+    "verificationProfile": "standard",
+    "requires": [],
+    "conflictsWith": []
   },
   {
     "id": "multi-agent-monitor",
@@ -467,7 +647,13 @@
     "invocationMode": "both",
     "triggerBranches": [
       "multi-agent-monitor"
-    ]
+    ],
+    "risk": "safe",
+    "maturity": "experimental",
+    "depth": "workflow",
+    "verificationProfile": "standard",
+    "requires": [],
+    "conflictsWith": []
   },
   {
     "id": "nextjs-react-expert",
@@ -482,7 +668,13 @@
     "invocationMode": "both",
     "triggerBranches": [
       "nextjs-react-expert"
-    ]
+    ],
+    "risk": "safe",
+    "maturity": "experimental",
+    "depth": "domain-reference",
+    "verificationProfile": "standard",
+    "requires": [],
+    "conflictsWith": []
   },
   {
     "id": "nodejs-best-practices",
@@ -497,7 +689,13 @@
     "invocationMode": "both",
     "triggerBranches": [
       "nodejs-best-practices"
-    ]
+    ],
+    "risk": "safe",
+    "maturity": "experimental",
+    "depth": "domain-reference",
+    "verificationProfile": "standard",
+    "requires": [],
+    "conflictsWith": []
   },
   {
     "id": "parallel-agents",
@@ -512,7 +710,13 @@
     "invocationMode": "both",
     "triggerBranches": [
       "parallel-agents"
-    ]
+    ],
+    "risk": "safe",
+    "maturity": "experimental",
+    "depth": "workflow",
+    "verificationProfile": "standard",
+    "requires": [],
+    "conflictsWith": []
   },
   {
     "id": "performance-profiling",
@@ -527,7 +731,13 @@
     "invocationMode": "both",
     "triggerBranches": [
       "performance-profiling"
-    ]
+    ],
+    "risk": "safe",
+    "maturity": "experimental",
+    "depth": "domain-reference",
+    "verificationProfile": "standard",
+    "requires": [],
+    "conflictsWith": []
   },
   {
     "id": "plan-master",
@@ -543,7 +753,13 @@
     "triggerBranches": [
       "multi-wave-master-plan",
       "go-no-go-roadmap"
-    ]
+    ],
+    "risk": "safe",
+    "maturity": "stable",
+    "depth": "workflow",
+    "verificationProfile": "standard",
+    "requires": [],
+    "conflictsWith": []
   },
   {
     "id": "planning-workflow",
@@ -559,7 +775,13 @@
     "triggerBranches": [
       "complex-work-planning",
       "phased-execution-design"
-    ]
+    ],
+    "risk": "safe",
+    "maturity": "stable",
+    "depth": "workflow",
+    "verificationProfile": "standard",
+    "requires": [],
+    "conflictsWith": []
   },
   {
     "id": "powershell-windows",
@@ -574,7 +796,13 @@
     "invocationMode": "both",
     "triggerBranches": [
       "powershell-windows"
-    ]
+    ],
+    "risk": "safe",
+    "maturity": "experimental",
+    "depth": "domain-reference",
+    "verificationProfile": "standard",
+    "requires": [],
+    "conflictsWith": []
   },
   {
     "id": "project-knowledge-update",
@@ -590,7 +818,13 @@
     "triggerBranches": [
       "reusable-project-knowledge",
       "knowledge-impact-close"
-    ]
+    ],
+    "risk": "safe",
+    "maturity": "stable",
+    "depth": "workflow",
+    "verificationProfile": "standard",
+    "requires": [],
+    "conflictsWith": []
   },
   {
     "id": "python-patterns",
@@ -605,7 +839,13 @@
     "invocationMode": "both",
     "triggerBranches": [
       "python-patterns"
-    ]
+    ],
+    "risk": "safe",
+    "maturity": "experimental",
+    "depth": "domain-reference",
+    "verificationProfile": "standard",
+    "requires": [],
+    "conflictsWith": []
   },
   {
     "id": "red-team-tactics",
@@ -620,7 +860,13 @@
     "invocationMode": "both",
     "triggerBranches": [
       "red-team-tactics"
-    ]
+    ],
+    "risk": "offensive",
+    "maturity": "stable",
+    "depth": "workflow",
+    "verificationProfile": "security",
+    "requires": [],
+    "conflictsWith": []
   },
   {
     "id": "rust-pro",
@@ -635,7 +881,13 @@
     "invocationMode": "both",
     "triggerBranches": [
       "rust-pro"
-    ]
+    ],
+    "risk": "safe",
+    "maturity": "experimental",
+    "depth": "domain-reference",
+    "verificationProfile": "standard",
+    "requires": [],
+    "conflictsWith": []
   },
   {
     "id": "safe-refactoring",
@@ -650,7 +902,13 @@
     "invocationMode": "both",
     "triggerBranches": [
       "safe-refactoring"
-    ]
+    ],
+    "risk": "safe",
+    "maturity": "stable",
+    "depth": "workflow",
+    "verificationProfile": "standard",
+    "requires": [],
+    "conflictsWith": []
   },
   {
     "id": "seo-fundamentals",
@@ -665,7 +923,13 @@
     "invocationMode": "both",
     "triggerBranches": [
       "seo-fundamentals"
-    ]
+    ],
+    "risk": "safe",
+    "maturity": "experimental",
+    "depth": "domain-reference",
+    "verificationProfile": "standard",
+    "requires": [],
+    "conflictsWith": []
   },
   {
     "id": "server-management",
@@ -680,7 +944,13 @@
     "invocationMode": "both",
     "triggerBranches": [
       "server-management"
-    ]
+    ],
+    "risk": "critical",
+    "maturity": "experimental",
+    "depth": "workflow",
+    "verificationProfile": "deployment",
+    "requires": [],
+    "conflictsWith": []
   },
   {
     "id": "systematic-debugging",
@@ -695,7 +965,13 @@
     "invocationMode": "both",
     "triggerBranches": [
       "systematic-debugging"
-    ]
+    ],
+    "risk": "safe",
+    "maturity": "stable",
+    "depth": "workflow",
+    "verificationProfile": "standard",
+    "requires": [],
+    "conflictsWith": []
   },
   {
     "id": "tailwind-patterns",
@@ -710,7 +986,13 @@
     "invocationMode": "both",
     "triggerBranches": [
       "tailwind-patterns"
-    ]
+    ],
+    "risk": "safe",
+    "maturity": "experimental",
+    "depth": "domain-reference",
+    "verificationProfile": "standard",
+    "requires": [],
+    "conflictsWith": []
   },
   {
     "id": "tdd-workflow",
@@ -725,7 +1007,13 @@
     "invocationMode": "both",
     "triggerBranches": [
       "tdd-workflow"
-    ]
+    ],
+    "risk": "safe",
+    "maturity": "stable",
+    "depth": "workflow",
+    "verificationProfile": "standard",
+    "requires": [],
+    "conflictsWith": []
   },
   {
     "id": "testing-patterns",
@@ -740,7 +1028,13 @@
     "invocationMode": "both",
     "triggerBranches": [
       "testing-patterns"
-    ]
+    ],
+    "risk": "safe",
+    "maturity": "experimental",
+    "depth": "workflow",
+    "verificationProfile": "standard",
+    "requires": [],
+    "conflictsWith": []
   },
   {
     "id": "ui-ux-pro-max",
@@ -755,7 +1049,13 @@
     "invocationMode": "both",
     "triggerBranches": [
       "ui-ux-pro-max"
-    ]
+    ],
+    "risk": "safe",
+    "maturity": "experimental",
+    "depth": "domain-reference",
+    "verificationProfile": "browser",
+    "requires": [],
+    "conflictsWith": []
   },
   {
     "id": "vulnerability-scanner",
@@ -770,7 +1070,13 @@
     "invocationMode": "both",
     "triggerBranches": [
       "vulnerability-scanner"
-    ]
+    ],
+    "risk": "critical",
+    "maturity": "experimental",
+    "depth": "workflow",
+    "verificationProfile": "security",
+    "requires": [],
+    "conflictsWith": []
   },
   {
     "id": "vm-operations-runbook",
@@ -785,7 +1091,13 @@
     "invocationMode": "both",
     "triggerBranches": [
       "vm-operations-runbook"
-    ]
+    ],
+    "risk": "critical",
+    "maturity": "stable",
+    "depth": "workflow",
+    "verificationProfile": "deployment",
+    "requires": [],
+    "conflictsWith": []
   },
   {
     "id": "web-design-guidelines",
@@ -800,7 +1112,13 @@
     "invocationMode": "both",
     "triggerBranches": [
       "web-design-guidelines"
-    ]
+    ],
+    "risk": "safe",
+    "maturity": "experimental",
+    "depth": "domain-reference",
+    "verificationProfile": "browser",
+    "requires": [],
+    "conflictsWith": []
   },
   {
     "id": "webapp-testing",
@@ -815,6 +1133,12 @@
     "invocationMode": "both",
     "triggerBranches": [
       "webapp-testing"
-    ]
+    ],
+    "risk": "safe",
+    "maturity": "experimental",
+    "depth": "workflow",
+    "verificationProfile": "browser",
+    "requires": [],
+    "conflictsWith": []
   }
 ]

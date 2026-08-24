@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "name": "project-rule-kit",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "sourceRoot": "template",
   "managedStatePath": ".agent-system/install-state.json",
   "excludedPrefixes": [

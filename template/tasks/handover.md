@@ -35,6 +35,10 @@
   zero warnings.
 - A catalog-wide contract validator and 4/4 failure-injection fixtures now block
   regressions that remove limitations, examples or completion criteria.
+- BRIDGE-0 installer hardening completed locally on 2026-08-24: targets can
+  declare digest-bound project ownership, legacy installs can be adopted into
+  managed state without modifying existing bytes, and the actual upgrade
+  requires a second fresh approval digest.
 
 ## Verification Evidence
 
@@ -67,6 +71,11 @@
   [Zero-Warning Skill Depth Close](./qc-evidence/RULEKIT-SKILL-DEPTH-HARDENING-WAVE-5-20260823.md).
 - Wave 5 exact delta PASS: warnings `44 -> 0`, generic scaffolds remain `0`;
   catalog-wide contract failure injection 4/4 and doctor healthy 11/11.
+- BRIDGE-0 evidence: installer fixtures 15/15 PASS, including stale-digest,
+  unsafe-path, prior-state refusal and rollback preservation. Catalog reports
+  54 skills, zero generic scaffolds, zero warnings; contract, depth, registry,
+  links, fixtures and semantic drift checks PASS. Template doctor is expected
+  to report only unresolved installed-project customization.
 
 ## Open Risks And Next Action
 
@@ -76,3 +85,6 @@
   Wave 2 is `c456b71`; Wave 3 is `7dde3f2`; Wave 4 is `c1624f7`. Wave 5 is
   `86bf22c`. All lifecycle and Wave 1–5 commits were pushed fast-forward to
   `origin/main` on 2026-08-23 and the Wave 5 remote SHA was verified.
+- BRIDGE-0 source candidate is ready for a dedicated commit/push. Next action:
+  dogfood the exact candidate on AutoTask-CV; do not create `v1.2.0` until its
+  overlay, installed-doctor and workflow-scenario gates pass.

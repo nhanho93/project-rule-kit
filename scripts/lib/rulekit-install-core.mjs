@@ -14,6 +14,7 @@ const stable = value => {
   return value;
 };
 const digest = value => `sha256-${hashBuffer(JSON.stringify(stable(value)))}`;
+const TARGET_OVERRIDE_PATH = ".agent-system/rulekit-install-overrides.json";
 
 function assertInside(root, candidate, label) {
   const relative = path.relative(path.resolve(root), path.resolve(candidate));
@@ -39,12 +40,59 @@ function shouldExclude(relative, config) {
   return Boolean(artifact && !config.artifactKeepNames.includes(path.posix.basename(relative)));
 }
 
-function ownershipOf(relative, config) {
-  if (config.projectOwnedPaths.includes(relative)) return "project";
-  return config.projectOwnedPrefixes.some(prefix => relative.startsWith(prefix)) ? "project" : "managed";
+function normalizeOwnedEntry(value, label, prefix = false) {
+  if (typeof value !== "string" || value.trim() !== value || value.length === 0) {
+    throw new Error(`${label} entries must be non-empty trimmed strings.`);
+  }
+  const normalized = value.replaceAll("\\", "/");
+  if (path.posix.isAbsolute(normalized) || /^[A-Za-z]:\//.test(normalized)) {
+    throw new Error(`${label} entries must be relative paths.`);
+  }
+  const segments = normalized.split("/").filter(Boolean);
+  if (segments.length === 0 || segments.some(segment => segment === "." || segment === "..")) {
+    throw new Error(`${label} contains an unsafe path: ${value}`);
+  }
+  const canonical = segments.join("/");
+  return prefix ? `${canonical}/` : canonical;
 }
 
-function listSourceFiles(sourceRoot, config) {
+function normalizeOwnershipConfig(value, label) {
+  const paths = value.projectOwnedPaths ?? [];
+  const prefixes = value.projectOwnedPrefixes ?? [];
+  if (!Array.isArray(paths) || !Array.isArray(prefixes)) {
+    throw new Error(`${label} ownership fields must be arrays.`);
+  }
+  const normalizedPaths = paths.map(item => normalizeOwnedEntry(item, `${label}.projectOwnedPaths`));
+  const normalizedPrefixes = prefixes.map(item => normalizeOwnedEntry(item, `${label}.projectOwnedPrefixes`, true));
+  if (new Set(normalizedPaths).size !== normalizedPaths.length || new Set(normalizedPrefixes).size !== normalizedPrefixes.length) {
+    throw new Error(`${label} ownership entries must be unique.`);
+  }
+  return { projectOwnedPaths: normalizedPaths, projectOwnedPrefixes: normalizedPrefixes };
+}
+
+function readTargetOverrides(target) {
+  const file = path.join(target, ...TARGET_OVERRIDE_PATH.split("/"));
+  assertNoSymlinkComponents(target, file);
+  if (!fs.existsSync(file)) {
+    return { path: TARGET_OVERRIDE_PATH, exists: false, sha256: null, projectOwnedPaths: [], projectOwnedPrefixes: [] };
+  }
+  if (!fs.lstatSync(file).isFile()) throw new Error("Target install override must be a regular file.");
+  const parsed = JSON.parse(fs.readFileSync(file, "utf8"));
+  if (parsed.schemaVersion !== 1) throw new Error("Target install override has an unsupported schemaVersion.");
+  return {
+    path: TARGET_OVERRIDE_PATH,
+    exists: true,
+    sha256: hashFile(file),
+    ...normalizeOwnershipConfig(parsed, "targetOverride")
+  };
+}
+
+function ownershipOf(relative, ownership) {
+  if (ownership.projectOwnedPaths.includes(relative)) return "project";
+  return ownership.projectOwnedPrefixes.some(prefix => relative.startsWith(prefix)) ? "project" : "managed";
+}
+
+function listSourceFiles(sourceRoot, config, ownership) {
   const files = [];
   const visit = directory => {
     for (const entry of fs.readdirSync(directory, { withFileTypes: true })) {
@@ -53,7 +101,7 @@ function listSourceFiles(sourceRoot, config) {
       if (entry.isSymbolicLink()) throw new Error(`Refusing symbolic link in package source: ${relative}`);
       if (entry.isDirectory()) visit(full);
       else if (entry.isFile() && !shouldExclude(relative, config)) {
-        files.push({ path: relative, sha256: hashFile(full), size: fs.statSync(full).size, ownership: ownershipOf(relative, config) });
+        files.push({ path: relative, sha256: hashFile(full), size: fs.statSync(full).size, ownership: ownershipOf(relative, ownership) });
       }
     }
   };
@@ -78,20 +126,30 @@ export function loadPackage(packageRoot) {
   }
   const sourceRoot = path.resolve(packageRoot, config.sourceRoot);
   assertInside(packageRoot, sourceRoot, "Package source");
-  return { config, sourceRoot, manifestPath };
+  const ownership = normalizeOwnershipConfig(config, "package");
+  return { config, sourceRoot, manifestPath, ownership };
 }
 
-export function buildInstallPlan(packageRoot, targetRoot) {
+export function buildInstallPlan(packageRoot, targetRoot, options = {}) {
   const target = path.resolve(targetRoot);
-  const { config, sourceRoot } = loadPackage(packageRoot);
+  const mode = options.adoptExisting ? "adopt" : "install";
+  const { config, sourceRoot, ownership: packageOwnership } = loadPackage(packageRoot);
   if (fs.existsSync(target) && fs.lstatSync(target).isSymbolicLink()) {
     throw new Error("Refusing symbolic-link target root.");
   }
   const statePath = path.join(target, config.managedStatePath);
   assertNoSymlinkComponents(target, statePath);
   const state = readState(statePath);
+  if (mode === "adopt" && state.entries.length > 0) {
+    throw new Error("Adoption is allowed only when managed install state is absent or empty.");
+  }
+  const targetOverride = readTargetOverrides(target);
+  const ownership = {
+    projectOwnedPaths: [...new Set([...packageOwnership.projectOwnedPaths, ...targetOverride.projectOwnedPaths])],
+    projectOwnedPrefixes: [...new Set([...packageOwnership.projectOwnedPrefixes, ...targetOverride.projectOwnedPrefixes])]
+  };
   const previous = new Map(state.entries.map(entry => [entry.path, entry]));
-  const sourceFiles = listSourceFiles(sourceRoot, config);
+  const sourceFiles = listSourceFiles(sourceRoot, config, ownership);
   const desired = new Set(sourceFiles.map(file => file.path));
   const operations = [];
 
@@ -117,6 +175,7 @@ export function buildInstallPlan(packageRoot, targetRoot) {
     const current = hashFile(destination);
     if (current === file.sha256) operations.push({ kind: "unchanged", path: file.path, before: current, after: file.sha256 });
     else if (prior && current === prior.sha256) operations.push({ kind: "updateManaged", path: file.path, before: current, after: file.sha256 });
+    else if (mode === "adopt" && !prior) operations.push({ kind: "adoptManaged", path: file.path, before: current, after: file.sha256 });
     else operations.push({ kind: "collision", path: file.path, reason: prior ? "managed-local-drift" : "unmanaged-existing", before: current, after: file.sha256 });
   }
 
@@ -132,9 +191,17 @@ export function buildInstallPlan(packageRoot, targetRoot) {
 
   const payload = {
     schemaVersion: 1,
+    mode,
     package: { name: config.name, version: config.version, integrity: digest(sourceFiles) },
     target: posix(target),
     managedStatePath: config.managedStatePath,
+    targetOverride: {
+      path: targetOverride.path,
+      exists: targetOverride.exists,
+      sha256: targetOverride.sha256,
+      projectOwnedPaths: targetOverride.projectOwnedPaths,
+      projectOwnedPrefixes: targetOverride.projectOwnedPrefixes
+    },
     operations: operations.sort((a, b) => a.path.localeCompare(b.path))
   };
   return { ...payload, approvalDigest: digest(payload), hasCollisions: operations.some(item => item.kind === "collision") };

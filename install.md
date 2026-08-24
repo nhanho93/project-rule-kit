@@ -170,14 +170,57 @@ Agents route Git mutations to `git-change-management`, general releases to
 
 ## Existing Project
 
-1. Run the installer preview against the real target; do not pre-copy files.
-2. Resolve every `unmanaged-existing` or `managed-local-drift` collision by
-   manual review. Existing content remains untouched.
-3. Preview again and apply only the new digest from the collision-free plan.
-4. Merge `AGENTS.md` and `GEMINI.md` manually if they already exist.
-5. Keep project-specific rules as overlays in `docs/agent-rules`.
-6. Refresh desired state and selection evidence after customization.
-7. Run `rulekit-doctor.mjs` before asking agents to use the kit.
+1. Run the ordinary installer preview against the real target; do not pre-copy
+   files. Review the facts-versus-decisions report first.
+2. Create `.agent-system/rulekit-install-overrides.json` when the target has
+   additional project-owned paths or prefixes. This file is target-owned and
+   its exact hash and normalized ownership declarations are bound into every
+   approval digest.
+3. If no managed state exists, run controlled adoption:
+
+   ```powershell
+   $adoption = node .\scripts\rulekit-install.mjs --target $target --adopt-existing | ConvertFrom-Json
+   $adoption.operations | Group-Object kind | Select-Object Name,Count
+   node .\scripts\rulekit-install.mjs --target $target --adopt-existing --apply --approve $adoption.approvalDigest
+   ```
+
+   Adoption is state-only. Existing managed files become `adoptManaged`,
+   project-owned files remain `preserveProject`, missing source files remain
+   uninstalled, and no target content is removed or replaced. Adoption fails
+   when state already contains entries, the digest is stale, an override path
+   is unsafe, or a target collision is not a regular file.
+4. Run a new ordinary preview. Adopted files now have a baseline, so intended
+   package updates appear as `updateManaged`; missing package files appear as
+   `install`; customized project-owned files remain `preserveProject`.
+5. Review the complete plan and apply only its fresh approval digest. Never
+   reuse the adoption digest for the ordinary upgrade.
+6. Resolve any remaining `managed-local-drift` collision by manual review.
+   Existing content remains untouched until the collision is explicitly
+   classified as kit-managed or project-owned.
+7. Merge project-specific knowledge and skill overlays; do not replace them.
+8. Refresh desired state and selection evidence after customization.
+9. Run `rulekit-doctor.mjs` before asking agents to use the kit.
+
+Example target override:
+
+```json
+{
+  "schemaVersion": 1,
+  "projectOwnedPaths": [
+    "AGENTS.md",
+    ".agent-system/registry/skills.json"
+  ],
+  "projectOwnedPrefixes": [
+    "docs/agent-rules/",
+    "tasks/",
+    ".agents/skills/my-project/"
+  ]
+}
+```
+
+Entries must be unique, repository-relative paths. Absolute paths, drive
+letters, `.` and `..` segments are rejected. A prefix applies only below its
+normalized trailing slash.
 
 If the project already has another registry, preserve it and declare an
 optional composition entry in `.agent-system/registry/extensions.json` rather

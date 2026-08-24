@@ -22,7 +22,8 @@ platform-specific rule in every context window.
 - Codex capability maps under `.agent-system/registry/codex-capabilities`.
 - Validation scripts for registry and link checks.
 - Preview-first installer with approval digest, managed ownership, collision
-  protection, bounded backup, failure rollback, and semantic drift checks.
+  protection, target-declared project ownership, controlled legacy adoption,
+  bounded backup, failure rollback, and semantic drift checks.
 - Desired-state and selection-evidence artifacts that bind project knowledge,
   supported platforms, exact skill IDs, and ten capability dimensions.
 - Portable Browser MCP X QC fallback packages in the Antigravity orchestrator
@@ -82,6 +83,32 @@ Set-Location D:\Path\To\YourProject
 For an existing project, follow [install.md](install.md). A collision means
 manual merge is required; the installer never resolves it by overwriting the
 target.
+
+Legacy installs without `.agent-system/install-state.json` use a two-step
+adoption before an ordinary upgrade. Adoption records current managed hashes
+only; it never copies package files or changes existing project bytes:
+
+```powershell
+$adoption = node .\scripts\rulekit-install.mjs --target $target --adopt-existing | ConvertFrom-Json
+$adoption.operations | Format-Table kind, path, reason
+node .\scripts\rulekit-install.mjs --target $target --adopt-existing --apply --approve $adoption.approvalDigest
+
+# Re-preview after adoption. This is the actual upgrade plan.
+$upgrade = node .\scripts\rulekit-install.mjs --target $target | ConvertFrom-Json
+node .\scripts\rulekit-install.mjs --target $target --apply --approve $upgrade.approvalDigest
+```
+
+Declare target-specific files that the kit must preserve in
+`.agent-system/rulekit-install-overrides.json`. Paths are relative, normalized,
+and digest-bound; invalid or escaping paths fail closed:
+
+```json
+{
+  "schemaVersion": 1,
+  "projectOwnedPaths": ["AGENTS.md", "docs/agent-rules/project-profile.md"],
+  "projectOwnedPrefixes": ["tasks/", ".agents/skills/project-specific/"]
+}
+```
 
 ```powershell
 # 1. Inspect mode (safe, shows what will happen)

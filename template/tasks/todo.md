@@ -38,6 +38,12 @@
   continuity records.
 - [x] Preserve the red-team authorization gate and vulnerability-scanner
   read-only boundary through Wave 3 validation.
+- [x] Add target-owned path/prefix overrides bound to installer approval digest.
+- [x] Add controlled state-only legacy adoption and two-digest upgrade flow.
+- [x] Add 15/15 installer fixtures, including project-owned failure injection.
+- [ ] Commit and push the Rule Kit 1.2.0 candidate without a stable tag.
+- [ ] Dogfood the candidate on AutoTask-CV and pass all installed/workflow gates.
+- [ ] After downstream PASS, create and verify stable tag/release `v1.2.0`.
 
 ## Owner And Next Action
 
@@ -45,3 +51,5 @@
 - Installed project owner: customize canonical knowledge before first mutation.
 - Project Rule Kit maintainer: no remaining Skill Depth Hardening action; remote
   publication and SHA verification completed on 2026-08-23.
+- Project Rule Kit maintainer: push the BRIDGE-0 candidate, then run the approved
+  AutoTask dogfood checklist before tagging the stable release.

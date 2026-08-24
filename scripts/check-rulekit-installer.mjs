@@ -4,7 +4,7 @@ import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { buildInstallPlan, createTemporaryTarget } from "./lib/rulekit-install-core.mjs";
-import { applyInstallPlan } from "./lib/rulekit-install-apply.mjs";
+import { applyAdoptionPlan, applyInstallPlan } from "./lib/rulekit-install-apply.mjs";
 
 const packageRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 let passed = 0;
@@ -14,6 +14,25 @@ const test = (name, run) => {
   catch (error) { console.error(`[FAIL] ${name}: ${error.message}`); throw error; }
 };
 const target = () => { const value = createTemporaryTarget(); roots.push(value); return value; };
+const overridePath = root => path.join(root, ".agent-system", "rulekit-install-overrides.json");
+const writeOverride = (root, value) => {
+  fs.mkdirSync(path.dirname(overridePath(root)), { recursive: true });
+  fs.writeFileSync(overridePath(root), `${JSON.stringify(value, null, 2)}\n`);
+};
+const fileSnapshot = (root, excluded = new Set()) => {
+  const result = new Map();
+  const visit = directory => {
+    for (const entry of fs.readdirSync(directory, { withFileTypes: true })) {
+      const full = path.join(directory, entry.name);
+      const relative = path.relative(root, full).split(path.sep).join("/");
+      if (excluded.has(relative)) continue;
+      if (entry.isDirectory()) visit(full);
+      else if (entry.isFile()) result.set(relative, fs.readFileSync(full).toString("base64"));
+    }
+  };
+  visit(root);
+  return result;
+};
 
 try {
   test("dry-run performs no writes", () => {
@@ -76,6 +95,86 @@ try {
     assert.equal(fs.readFileSync(file, "utf8"), "customized-project-profile\n");
   });
 
+  test("target ownership override preserves customized bytes", () => {
+    const root = target();
+    const relative = "scripts/check-agent-links.mjs";
+    const file = path.join(root, ...relative.split("/"));
+    fs.mkdirSync(path.dirname(file), { recursive: true });
+    fs.writeFileSync(file, "target-owned-customization\n");
+    writeOverride(root, { schemaVersion: 1, projectOwnedPaths: [relative], projectOwnedPrefixes: [] });
+    const plan = buildInstallPlan(packageRoot, root);
+    assert.equal(plan.operations.find(item => item.path === relative).kind, "preserveProject");
+    applyInstallPlan(packageRoot, root, plan.approvalDigest);
+    assert.equal(fs.readFileSync(file, "utf8"), "target-owned-customization\n");
+  });
+
+  test("adoption writes only managed state and preserves all existing bytes", () => {
+    const root = target();
+    const relative = "scripts/check-agent-links.mjs";
+    const file = path.join(root, ...relative.split("/"));
+    fs.mkdirSync(path.dirname(file), { recursive: true });
+    fs.writeFileSync(file, "legacy-customization\n");
+    const before = fileSnapshot(root);
+    const plan = buildInstallPlan(packageRoot, root, { adoptExisting: true });
+    assert.equal(plan.operations.find(item => item.path === relative).kind, "adoptManaged");
+    applyAdoptionPlan(packageRoot, root, plan.approvalDigest);
+    const stateRelative = ".agent-system/install-state.json";
+    assert.deepEqual(fileSnapshot(root, new Set([stateRelative])), before);
+    assert.equal(fs.existsSync(path.join(root, ...stateRelative.split("/"))), true);
+    const next = buildInstallPlan(packageRoot, root);
+    assert.equal(next.operations.find(item => item.path === relative).kind, "updateManaged");
+  });
+
+  test("stale adoption digest is rejected", () => {
+    const root = target();
+    const file = path.join(root, "scripts", "check-agent-links.mjs");
+    fs.mkdirSync(path.dirname(file), { recursive: true });
+    fs.writeFileSync(file, "legacy-one\n");
+    const plan = buildInstallPlan(packageRoot, root, { adoptExisting: true });
+    fs.writeFileSync(file, "legacy-two\n");
+    assert.throws(() => applyAdoptionPlan(packageRoot, root, plan.approvalDigest), /stale/);
+  });
+
+  test("adoption is rejected when managed state already exists", () => {
+    const root = target();
+    const initial = buildInstallPlan(packageRoot, root);
+    applyInstallPlan(packageRoot, root, initial.approvalDigest);
+    assert.throws(() => buildInstallPlan(packageRoot, root, { adoptExisting: true }), /only when managed install state/);
+  });
+
+  test("adoption replaces an explicitly empty state file", () => {
+    const root = target();
+    const state = path.join(root, ".agent-system", "install-state.json");
+    fs.mkdirSync(path.dirname(state), { recursive: true });
+    fs.writeFileSync(state, '{"schemaVersion":1,"entries":[]}\n');
+    const plan = buildInstallPlan(packageRoot, root, { adoptExisting: true });
+    const result = applyAdoptionPlan(packageRoot, root, plan.approvalDigest);
+    assert.equal(result.status, "adopted");
+    assert.equal(JSON.parse(fs.readFileSync(state, "utf8")).package.version, "1.2.0");
+  });
+
+  test("unsafe target ownership override is rejected", () => {
+    const root = target();
+    writeOverride(root, { schemaVersion: 1, projectOwnedPaths: ["../outside.md"], projectOwnedPrefixes: [] });
+    assert.throws(() => buildInstallPlan(packageRoot, root), /unsafe path/);
+  });
+
+  test("injected rollback never changes target-owned bytes", () => {
+    const root = target();
+    const initial = buildInstallPlan(packageRoot, root);
+    applyInstallPlan(packageRoot, root, initial.approvalDigest);
+    const protectedRelative = "scripts/check-agent-links.mjs";
+    const protectedFile = path.join(root, ...protectedRelative.split("/"));
+    writeOverride(root, { schemaVersion: 1, projectOwnedPaths: [protectedRelative], projectOwnedPrefixes: [] });
+    fs.writeFileSync(protectedFile, "must-survive-failure\n");
+    const removedRelative = "scripts/check-agent-compliance.mjs";
+    fs.rmSync(path.join(root, ...removedRelative.split("/")));
+    const plan = buildInstallPlan(packageRoot, root);
+    assert.equal(plan.operations.find(item => item.path === protectedRelative).kind, "preserveProject");
+    assert.throws(() => applyInstallPlan(packageRoot, root, plan.approvalDigest, { failAfter: 1 }), /Injected/);
+    assert.equal(fs.readFileSync(protectedFile, "utf8"), "must-survive-failure\n");
+  });
+
   test("injected failure rolls fresh install back", () => {
     const root = target();
     const plan = buildInstallPlan(packageRoot, root);
@@ -92,7 +191,7 @@ try {
     assert.throws(() => buildInstallPlan(packageRoot, root), /symbolic-link/);
   });
 
-  console.log(`[SUCCESS] Installer fixtures ${passed}/8 passed.`);
+  console.log(`[SUCCESS] Installer fixtures ${passed}/15 passed.`);
 } finally {
   for (const root of roots) fs.rmSync(root, { recursive: true, force: true });
 }

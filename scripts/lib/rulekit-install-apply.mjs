@@ -8,8 +8,21 @@ import {
 function writeJsonAtomic(file, value) {
   fs.mkdirSync(path.dirname(file), { recursive: true });
   const temporary = `${file}.${process.pid}.${Date.now()}.tmp`;
+  const previous = `${file}.${process.pid}.${Date.now()}.previous`;
   fs.writeFileSync(temporary, `${JSON.stringify(value, null, 2)}\n`, { mode: 0o600 });
-  fs.renameSync(temporary, file);
+  let movedPrevious = false;
+  try {
+    if (fs.existsSync(file)) {
+      fs.renameSync(file, previous);
+      movedPrevious = true;
+    }
+    fs.renameSync(temporary, file);
+    if (movedPrevious) fs.rmSync(previous, { force: true });
+  } catch (error) {
+    if (fs.existsSync(temporary)) fs.rmSync(temporary, { force: true });
+    if (movedPrevious && !fs.existsSync(file) && fs.existsSync(previous)) fs.renameSync(previous, file);
+    throw error;
+  }
 }
 
 function stageOperations(plan, sourceRoot, stageRoot) {
@@ -39,7 +52,7 @@ function rollback(mutations, statePath, oldState, stageRoot) {
 }
 
 export function applyInstallPlan(packageRoot, targetRoot, approvalDigest, options = {}) {
-  const plan = buildInstallPlan(packageRoot, targetRoot);
+  const plan = buildInstallPlan(packageRoot, targetRoot, { adoptExisting: false });
   if (plan.approvalDigest !== approvalDigest) throw new Error("Approval digest is stale or belongs to another target state.");
   if (plan.hasCollisions) throw new Error("Install plan contains collisions; merge them manually and preview again.");
   const target = path.resolve(targetRoot);
@@ -84,4 +97,27 @@ export function applyInstallPlan(packageRoot, targetRoot, approvalDigest, option
     rollback(mutations, statePath, oldState, stageRoot);
     throw error;
   }
+}
+
+export function applyAdoptionPlan(packageRoot, targetRoot, approvalDigest) {
+  const plan = buildInstallPlan(packageRoot, targetRoot, { adoptExisting: true });
+  if (plan.approvalDigest !== approvalDigest) throw new Error("Approval digest is stale or belongs to another target state.");
+  if (plan.hasCollisions) throw new Error("Adoption plan contains collisions; resolve them and preview again.");
+  const target = path.resolve(targetRoot);
+  const { config } = loadPackage(packageRoot);
+  fs.mkdirSync(target, { recursive: true });
+  const statePath = path.join(target, config.managedStatePath);
+  assertNoSymlinkComponents(target, statePath);
+  const entries = plan.operations
+    .filter(item => ["adoptManaged", "unchanged"].includes(item.kind))
+    .map(item => ({ path: item.path, sha256: item.kind === "adoptManaged" ? item.before : item.after }))
+    .sort((a, b) => a.path.localeCompare(b.path));
+  writeJsonAtomic(statePath, {
+    schemaVersion: 1,
+    package: plan.package,
+    approvalDigest: plan.approvalDigest,
+    adoptedAt: new Date().toISOString(),
+    entries
+  });
+  return { status: "adopted", approvalDigest: plan.approvalDigest, operationCount: entries.length };
 }

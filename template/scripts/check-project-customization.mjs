@@ -63,7 +63,7 @@ const allowedPlaceholders = {
 function walkSync(dir, callback) {
   const files = fs.readdirSync(dir);
   for (const file of files) {
-    if (file === "node_modules" || file === ".git") continue;
+    if (["node_modules", ".git", "install-backups"].includes(file) || file.startsWith(".rulekit-stage-")) continue;
     const filepath = path.join(dir, file);
     const stats = fs.statSync(filepath);
     if (stats.isDirectory()) {

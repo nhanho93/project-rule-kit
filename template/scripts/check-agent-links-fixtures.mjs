@@ -44,6 +44,11 @@ try {
   fs.appendFileSync(agentsFile, `\n[generated path](${generatedPath})\n`);
   run(false);
 
+  const backupFile = path.join(fixture, ".agent-system", "install-backups", "run-1", "stale.md");
+  fs.mkdirSync(path.dirname(backupFile), { recursive: true });
+  fs.writeFileSync(backupFile, "[archived broken link](missing-from-backup.md)\n");
+  run(false);
+
   fs.appendFileSync(agentsFile, "\n[real broken link](missing-live-rule.md)\n");
   run(true, "missing-live-rule.md");
   console.log(`[END] check-agent-links-fixtures PASS: ${assertions} assertions.`);

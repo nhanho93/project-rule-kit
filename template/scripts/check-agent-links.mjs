@@ -32,6 +32,7 @@ function walk(dir) {
     return;
   }
   for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
+    if (["install-backups"].includes(entry.name) || entry.name.startsWith(".rulekit-stage-")) continue;
     const full = path.join(dir, entry.name);
     if (entry.isDirectory()) {
       walk(full);

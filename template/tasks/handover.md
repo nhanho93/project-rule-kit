@@ -88,3 +88,7 @@
 - BRIDGE-0 source candidate is ready for a dedicated commit/push. Next action:
   dogfood the exact candidate on AutoTask-CV; do not create `v1.2.0` until its
   overlay, installed-doctor and workflow-scenario gates pass.
+- First dogfood doctor found validator false positives inside the installer's
+  bounded backup directory. Link and customization scanners now exclude only
+  backup/stage internals; live project surfaces remain fully scanned. Link
+  fixtures increased from 4/4 to 5/5.

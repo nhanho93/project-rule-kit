@@ -67,6 +67,12 @@ installer fixtures and source Standards x Spec validators passed on 2026-08-24.
 SLICE B1-SOURCE-DELIVERY: commit and push the verified 1.2.0 source candidate without
 tagging. Completion is exact remote SHA verification.
 
+STATUS: PASS WITH DOGFOOD CORRECTION — initial candidate `2e4db7c` was pushed
+and verified. AutoTask doctor exposed archived installer backups as false live
+inputs to link/customization validators; the source correction excludes only
+bounded `.agent-system/install-backups` and transient stage directories and is
+covered by the fifth link failure-injection assertion.
+
 SLICE B2-AUTOTASK-DOGFOOD: adopt and upgrade AutoTask using two fresh approval
 digests, preserve overlay hashes, run all installed validators plus simple and
 complex workflow fixtures, and commit only governance paths. Completion is a

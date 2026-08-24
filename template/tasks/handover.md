@@ -92,3 +92,9 @@
   bounded backup directory. Link and customization scanners now exclude only
   backup/stage internals; live project surfaces remain fully scanned. Link
   fixtures increased from 4/4 to 5/5.
+- BRIDGE-0 and Rule Kit 1.2 are closed. AutoTask dogfood committed locally as
+  `77d94147` with no push/deploy; installed doctor is healthy 11/11 and the
+  catalog is 54 base plus seven project overlays with zero warning debt.
+- Stable annotated tag `v1.2.0` peels to
+  `1515504c0429f08b555d51a6491af6f58240ad32`; the public GitHub release is
+  published and verified as neither draft nor prerelease.

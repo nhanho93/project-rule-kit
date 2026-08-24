@@ -41,11 +41,11 @@
 - [x] Add target-owned path/prefix overrides bound to installer approval digest.
 - [x] Add controlled state-only legacy adoption and two-digest upgrade flow.
 - [x] Add 15/15 installer fixtures, including project-owned failure injection.
-- [ ] Commit and push the Rule Kit 1.2.0 candidate without a stable tag.
-- [ ] Dogfood the candidate on AutoTask-CV and pass all installed/workflow gates.
+- [x] Commit and push the Rule Kit 1.2.0 candidate without a stable tag.
+- [x] Dogfood the candidate on AutoTask-CV and pass all installed/workflow gates.
 - [x] Backport the dogfood-discovered backup/stage validator exclusion and add
   a regression fixture for an archived broken link.
-- [ ] After downstream PASS, create and verify stable tag/release `v1.2.0`.
+- [x] After downstream PASS, create and verify stable tag/release `v1.2.0`.
 
 ## Owner And Next Action
 

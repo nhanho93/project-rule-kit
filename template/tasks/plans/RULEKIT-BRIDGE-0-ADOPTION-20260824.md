@@ -1,6 +1,6 @@
 # Rule Kit BRIDGE-0 — Controlled Legacy Adoption
 
-CURRENT EXECUTION POINTER: `B1-SOURCE-DELIVERY`
+CURRENT EXECUTION POINTER: `COMPLETE`
 
 # TASK CLASSIFICATION
 
@@ -78,9 +78,16 @@ digests, preserve overlay hashes, run all installed validators plus simple and
 complex workflow fixtures, and commit only governance paths. Completion is a
 clean scoped commit with no runtime/deploy mutation.
 
+STATUS: PASS — AutoTask local commit `77d94147`; 54 base + seven project
+overlays; zero generic/large/warning/error debt; installed doctor healthy 11/11;
+simple and complex workflow scenarios PASS. AutoTask was not pushed or deployed.
+
 SLICE B3-STABLE-RELEASE: create and push annotated tag `v1.2.0`, then publish stable
 release notes. Completion is remote tag/release verification against the exact
 Rule Kit candidate SHA.
+
+STATUS: PASS — annotated tag `v1.2.0` peels to dogfooded candidate
+`1515504c0429f08b555d51a6491af6f58240ad32`; GitHub stable release is published.
 
 # DEPENDENCY EDGES
 
